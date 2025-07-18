@@ -37,40 +37,40 @@
       flex-wrap: wrap;
       justify-content: center;
       padding: 2em;
-      gap: 2em;
     }
     .member {
       background-color: white;
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin: 1em;
       padding: 1.5em;
-      width: 300px;
+      max-width: 300px;
+      text-align: center;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      justify-content: space-between;
     }
     .member img {
       width: 200px;
       height: 200px;
       object-fit: cover;
-      object-position: bottom;
+      object-position: top;
       border-radius: 10px;
-      margin-bottom: 1em;
+      margin: 0 auto;
     }
     .member h3 {
-      margin: 0.5em 0 0.2em;
-      text-align: center;
+      margin: 0.4em 0 0.1em;
     }
-    .member .email {
+    .email {
       color: #007bff;
       font-size: 0.9em;
-      margin-bottom: 1em;
-      text-align: center;
+      margin: 0 0 0.6em;
+      display: block;
     }
     .member p {
       font-size: 0.95em;
       color: #333;
-      text-align: left;
+      margin: 0;
     }
     footer {
       background-color: #343a40;
