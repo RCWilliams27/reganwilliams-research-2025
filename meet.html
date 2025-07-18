@@ -1,52 +1,101 @@
-<style>
-  .team-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-    padding-top: 1rem;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meet the Team</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+    header {
+      background-color: #343a40;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    nav {
+      background-color: #495057;
+      display: flex;
+      justify-content: center;
+      padding: 0.5em 0;
+    }
+    nav a {
+      color: white;
+      margin: 0 1em;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .team-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2em;
+    }
+    .member {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin: 1em;
+      padding: 1.5em;
+      max-width: 300px;
+      text-align: center;
+    }
+    .member img {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      border-radius: 10px;
+    }
+    .member h3 {
+      margin: 0.8em 0 0.2em;
+    }
+    .member p {
+      font-size: 0.95em;
+      color: #333;
+    }
+    .email {
+      color: #007bff;
+      font-size: 0.9em;
+      margin-bottom: 1em;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Meet the Team</h1>
+  </header>
 
-  .team-member {
-    max-width: 400px;
-    text-align: left;
-  }
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="graphs.html">Graphs</a>
+    <a href="meet.html">Meet the Team</a>
+    <a href="notes.html">Daily Notes</a>
+  </nav>
 
-  .team-member img {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
+  <div class="team-container">
 
-  .team-member h3 {
-    margin-top: 0.8rem;
-    margin-bottom: 0.2rem;
-  }
+    <div class="member">
+      <img src="ReganHeadshot.jpg" alt="Photo of Regan Williams">
+      <h3>Regan Williams</h3>
+      <span class="email">rwilliams@amherst.edu</span>
+      <p>I am an Amherst College student double majoring in Mathematics and Political Science. As part of a dual degree program, I am also pursuing a degree in Energy Engineering at Dartmouth College. I’m especially interested in how mathematical tools can be used to model and better understand complex physical systems, and I am passionate about finding practical, sustainable solutions to real-world problems. In my free time, I enjoy playing soccer, going to the gym, and climbing.</p>
+    </div>
 
-  .team-member p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
+    <div class="member">
+      <img src="IvanHeadshot.jpg" alt="Photo of Professor Ivan Contreras">
+      <h3>Professor Ivan Contreras</h3>
+      <span class="email">icontreraspalacios@amherst.edu</span>
+      <p>My research lies at the intersection of geometry, topology, and mathematical physics. I am particularly interested in exploring the two main ways to understand physical systems: the classical approach, which analyzes phenomena at the macroscopic scale, and the quantum approach, which studies physics at the subatomic level. My work focuses on bridging these perspectives using tools from differential geometry. In my free time, I enjoy cooking and soccer (both watching and playing).</p>
+    </div>
 
-  .team-member a {
-    font-size: 0.9rem;
-    color: #0066cc;
-    text-decoration: none;
-  }
-</style>
-
-<div class="team-grid">
-  <div class="team-member">
-    <img src="ivan.jpg" alt="Professor Ivan Contreras">
-    <h3>Professor Ivan Contreras</h3>
-    <p><a href="mailto:icontreraspalacios@amherst.edu">icontreraspalacios@amherst.edu</a></p>
-    <p>My research lies at the intersection of geometry, topology, and mathematical physics. I am particularly interested in exploring the two main ways to understand physical systems: the classical approach, which analyzes phenomena at the macroscopic scale, and the quantum approach, which studies physics at the subatomic level. My work focuses on bridging these perspectives using tools from differential geometry. In my free time, I enjoy cooking and soccer (both watching and playing).</p>
   </div>
-
-  <div class="team-member">
-    <img src="ReganHeadshot.jpg" alt="Regan Williams">
-    <h3>Regan Williams</h3>
-    <p><a href="mailto:rwilliams@amherst.edu">rwilliams@amherst.edu</a></p>
-    <p>I am an Amherst College student double majoring in Mathematics and Political Science. As part of a dual degree program, I am also pursuing a degree in Energy Engineering at Dartmouth College. I’m especially interested in how mathematical tools can be used to model and better understand complex physical systems, and I am passionate about finding practical, sustainable solutions to real-world problems. In my free time, I enjoy playing soccer, going to the gym, and climbing.</p>
-  </div>
-</div>
+</body>
+</html>
