@@ -1,28 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
+<style>
+  .team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding-top: 1rem;
+  }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meet Us - Regan Williams Research 2025</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+  .team-member {
+    max-width: 400px;
+    text-align: left;
+  }
 
-<body>
-  <header>
-    <div class="site-title">Regan Williams Research 2025</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="visualizations.html">Visualizations</a>
-      <a href="meet.html">Meet Us</a>
-    </nav>
-  </header>
+  .team-member img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
 
-  <main>
-    <h1>Meet the Team</h1>
-    <p>Learn more about the people behind the research.</p>
-    <!-- Add bios, photos, and links here -->
-  </main>
-</body>
+  .team-member h3 {
+    margin-top: 0.8rem;
+    margin-bottom: 0.2rem;
+  }
 
-</html>
+  .team-member p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .team-member a {
+    font-size: 0.9rem;
+    color: #0066cc;
+    text-decoration: none;
+  }
+</style>
+
+<div class="team-grid">
+  <div class="team-member">
+    <img src="ivan.jpg" alt="Professor Ivan Contreras">
+    <h3>Professor Ivan Contreras</h3>
+    <p><a href="mailto:icontreraspalacios@amherst.edu">icontreraspalacios@amherst.edu</a></p>
+    <p>My research lies at the intersection of geometry, topology, and mathematical physics. I am particularly interested in exploring the two main ways to understand physical systems: the classical approach, which analyzes phenomena at the macroscopic scale, and the quantum approach, which studies physics at the subatomic level. My work focuses on bridging these perspectives using tools from differential geometry. In my free time, I enjoy cooking and soccer (both watching and playing).</p>
+  </div>
+
+  <div class="team-member">
+    <img src="ReganHeadshot.jpg" alt="Regan Williams">
+    <h3>Regan Williams</h3>
+    <p><a href="mailto:rwilliams@amherst.edu">rwilliams@amherst.edu</a></p>
+    <p>I am an Amherst College student double majoring in Mathematics and Political Science. As part of a dual degree program, I am also pursuing a degree in Energy Engineering at Dartmouth College. I’m especially interested in how mathematical tools can be used to model and better understand complex physical systems, and I am passionate about finding practical, sustainable solutions to real-world problems. In my free time, I enjoy playing soccer, going to the gym, and climbing.</p>
+  </div>
+</div>
