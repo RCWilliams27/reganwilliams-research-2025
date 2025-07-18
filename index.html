@@ -40,7 +40,15 @@
     section {
       margin-bottom: 2em;
     }
-    h2 {
+    .box {
+      background-color: #ffffff;
+      border: 1px solid #dee2e6;
+      padding: 1.5em;
+      margin-bottom: 2em;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    h2, h3 {
       color: #333;
     }
     footer {
@@ -77,46 +85,72 @@
     <section>
       <h2>Entropy & Network Complexity</h2>
 
-      <h3>What Is Entropy?</h3>
-      <p>Entropy measures uncertainty or disorder in a system. It reflects the number of microscopic configurations (microstates) that correspond to the same observable condition (macrostate). Because disordered configurations vastly outnumber ordered ones, systems tend to evolve from low-entropy (ordered) to high-entropy (disordered) states.</p>
+      <div class="box">
+        <h3>What Is Entropy?</h3>
+        <p>Entropy measures uncertainty or disorder in a system. More specifically, entropy reflects the number of different microscopic configurations (microstates) that correspond to the same observable condition (macrostate). Because there are many more disordered configurations than ordered ones, systems evolve from low-entropy (more ordered) states to high-entropy (less ordered) states.</p>
+      </div>
 
-      <h3>Why Is Entropy Important?</h3>
-      <p>Entropy appears across physics, information theory, and beyond. Major types include:</p>
-      <ul>
-        <li><strong>Gibbs Entropy</strong> — Describes disorder in classical systems with many particles.</li>
-        <li><strong>Shannon Entropy</strong> — Measures uncertainty in communication and data systems.</li>
-        <li><strong>Von Neumann Entropy</strong> — The quantum counterpart, describing uncertainty in quantum states.</li>
-        <li><strong>Bekenstein-Hawking Entropy</strong> — Quantifies hidden information in black holes.</li>
-        <li><strong>Boltzmann Entropy</strong> — Connects microscopic randomness to macroscopic behavior.</li>
-      </ul>
+      <div class="box">
+        <h3>Why Is It Important?</h3>
+        <p>Entropy shows up across many fields of science, helping us understand everything from heat to information to the structure of the universe. There are several main types of entropy:</p>
+        <ul>
+          <li><strong>Gibbs Entropy:</strong> Describes disorder in systems with lots of particles in classical physics.</li>
+          <li><strong>Shannon Entropy:</strong> Measures uncertainty in data and communication systems.</li>
+          <li><strong>Von Neumann Entropy:</strong> The quantum version, used to describe uncertainty in quantum states.</li>
+          <li><strong>Bekenstein-Hawking Entropy:</strong> Used in black hole physics to describe how much information is hidden inside a black hole.</li>
+          <li><strong>Boltzmann Entropy:</strong> One of the original ideas of entropy, linking microscopic randomness to macroscopic behavior.</li>
+        </ul>
+      </div>
 
-      <h3>Why Use Graphs?</h3>
-      <p>Many real-world systems—like social networks, epidemics, and quantum processes—are too complex to model continuously. By discretizing them into graphs, we can use linear algebra to compute and understand entropy. Graphs represent systems as networks of vertices and edges, which can be analyzed using matrices to uncover structure and complexity.</p>
+      <div class="box">
+        <h3>Why Graphs?</h3>
+        <p>Many real-world systems, such as epidemics, social networks, the internet, and key physical processes, involve entropy. Measuring this entropy helps us understand and predict their behavior. However, these systems are too complex to model using continuous equations alone. But by discretizing these problems, we can apply linear algebra techniques to compute solutions more effectively. Graph theory provides a natural framework for this discretization. It lets us represent complex systems as networks of vertices and edges, which can be studied using matrices. These matrices capture important structural features that are closely tied to the concept of entropy. This graph-based, linear algebra approach forms the foundation of our research into the entropy of networks.</p>
+      </div>
 
-      <h3>Our Focus: Von Neumann Entropy on Graphs</h3>
-      <p>We use the Laplacian matrix of a graph to compute von Neumann entropy, measuring how complex or disordered the network is. This approach lets us explore:</p>
-      <ul>
-        <li>How entropy compares across well-known graphs</li>
-        <li>Whether large graphs can be broken into parts, analyzed separately, and recombined</li>
-        <li>How entropy changes as we rewire a graph’s connections</li>
-      </ul>
+      <div class="box">
+        <h3>Our Focus: Von Neumann Entropy on Graphs</h3>
+        <p>In this research, we calculate von Neumann entropy using graphs, utilizing the spectral properties of their Laplacian matrices to measure structural complexity and disorder in networks. This raises natural questions:</p>
+        <ul>
+          <li>How does the entropy of well-known graphs compare, and what does that tell us about their structure?</li>
+          <li>Can we break a large graph into parts, calculate entropy for each, and then "glue" them back together?</li>
+          <li>How does entropy change when we rewire a graph’s connections?</li>
+        </ul>
+        <p>Exploring these questions helps us understand how entropy behaves in complex networks.</p>
+      </div>
 
-      <h3>How We Calculate It</h3>
-      <p>We construct two matrices from a graph:</p>
-      <ul>
-        <li><strong>Degree Matrix (D)</strong> — A diagonal matrix where each entry reflects the number of edges connected to a vertex.</li>
-        <li><strong>Adjacency Matrix (A)</strong> — A matrix that shows which vertices share edges.</li>
-      </ul>
-      <p>The <strong>Laplacian matrix</strong> is defined as <code>Δ = D − A</code>. Its eigenvalues are used to compute von Neumann entropy via the formula <code>∑ λ log(λ)</code>, where λ runs over the eigenvalues of a normalized version of the Laplacian.</p>
+      <div class="box">
+        <h3>Von Neumann Entropy of Graphs</h3>
+        <p>Von Neumann entropy is a way to measure how complex or “disordered” a graph is by looking at its structure.</p>
+        <p><strong>How We Calculate It:</strong></p>
+        <ul>
+          <li><strong>Degree matrix (D):</strong> This is a simple matrix that shows how many connections each vertex has. Each diagonal entry tells you the number of edges coming out of that vertex.</li>
+          <li><strong>Adjacency matrix (A):</strong> This matrix shows which vertices are connected. If two vertices share an edge, the matrix entry is 1; if not, it’s 0.</li>
+        </ul>
+        <p>The Laplacian matrix (∆) is found by subtracting the adjacency matrix from the degree matrix:<br>
+        ∆ = D − A</p>
+        <p>This Laplacian matrix reflects both the individual connections of vertices and the overall structure of the graph. We then analyze the eigenvalues (λ) of ∆ to compute the von Neumann entropy using the formula: ∑ λ ln λ.</p>
+      </div>
 
-      <h3>Why It Matters</h3>
-      <ul>
-        <li>Reveals how ordered or random a network is</li>
-        <li>Captures complexity in structure and connection patterns</li>
-        <li>Useful in real-world applications like social network analysis, pattern recognition, and comparing systems</li>
-      </ul>
+      <div class="box">
+        <h3>Why It Matters</h3>
+        <ul>
+          <li>It helps us understand how ordered or random a network is.</li>
+          <li>It shows how complex the graph’s connections are.</li>
+          <li>It can be used in real-world problems like analyzing social networks, recognizing patterns, or comparing different networks.</li>
+        </ul>
+        <p>In short, von Neumann entropy gives us a number that tells how complex or disordered a graph is, helping us see patterns and structure in networks.</p>
+      </div>
 
-      <p><strong>In short:</strong> Von Neumann entropy gives us a numerical measure of a graph’s complexity—helping us understand the hidden structure of networks.</p>
+      <div class="box">
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>Entropy measures uncertainty or disorder in a system.</li>
+          <li>Different types of entropy connect ideas from thermodynamics, quantum mechanics, and information theory.</li>
+          <li>Because continuous systems can be hard to solve, we often discretize them and use linear algebra to study them more easily.</li>
+          <li>Von Neumann entropy of graphs applies these concepts to networks, helping us understand their structure and complexity.</li>
+        </ul>
+      </div>
+
     </section>
   </main>
 
