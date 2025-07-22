@@ -50,6 +50,13 @@
       color: #333;
       margin-top: 0;
     }
+    /* Center formulas */
+    .formula {
+      text-align: center;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 1.1em;
+      margin: 1em 0;
+    }
     footer {
       background-color: #343a40;
       color: white;
@@ -82,7 +89,7 @@
 
     <section class="notes">
       <h2>Daily Notes</h2>
-      <p><a href="https://www.overleaf.com/read/your-share-code-here" target="_blank">View Notes on Overleaf</a></p>
+      <p><a href="https://www.overleaf.com/read/your-share-code-here" target="_blank" rel="noopener noreferrer">View Notes on Overleaf</a></p>
     </section>
 
     <section>
@@ -97,11 +104,11 @@
         <h3>Why Is It Important?</h3>
         <p>Entropy shows up across many fields of science, helping us understand everything from heat to information to the structure of the universe. There are several main types of entropy:</p>
         <ul>
-          <li><strong>Boltzmann Entropy</strong></li>
-          <li><strong>Gibbs Entropy</strong></li>
-          <li><strong>Shannon Entropy</strong></li>
-          <li><strong>Von Neumann Entropy</strong></li>
-          <li><strong>Bekenstein-Hawking Entropy</strong></li>
+          <li>Boltzmann Entropy</li>
+          <li>Gibbs Entropy</li>
+          <li>Shannon Entropy</li>
+          <li>Von Neumann Entropy</li>
+          <li>Bekenstein-Hawking Entropy</li>
         </ul>
       </div>
 
@@ -111,7 +118,7 @@
       </div>
 
       <section>
-        <h2>Von Neumann Entropy on Graphs</h2>
+        <h2>Von Neumann Entropy</h2>
 
         <div class="box">
           <h3>Our Focus</h3>
@@ -124,30 +131,30 @@
         </div>
 
         <div class="box">
-          <h3>What Is Von Neumann Entropy of Graphs?</h3>
+          <h3>What Is Von Neumann Entropy?</h3>
           <p>Von Neumann entropy is a way to measure how complex or “disordered” a graph is by looking at its structure.</p>
           <p><strong>How We Calculate It:</strong></p>
           <ul>
             <li><strong>Degree matrix (D):</strong> This matrix shows how many connections each vertex has. Each diagonal entry tells you the number of edges coming out of that vertex.</li>
+            
             <li><strong>Adjacency matrix (A):</strong> This matrix shows which vertices are connected. If two vertices share an edge, the matrix entry is 1; if not, it’s 0.</li>
           </ul>
-          <p>The Laplacian matrix (∆) is found by subtracting the adjacency matrix from the degree matrix:<br>
-          ∆ = D − A</p>
-          <p>This Laplacian matrix reflects both the individual connections of vertices and the overall structure of the graph. We then analyze the eigenvalues (λ) of ∆ to compute the von Neumann entropy using the formula:<br>
-          ∑ λ ln λ</p>
+          <p class="formula">The Laplacian matrix (∆) is found by subtracting the adjacency matrix from the degree matrix:</p>
+          <p class="formula">∆ = D − A</p>
+          <p>This Laplacian matrix reflects both the individual connections of vertices and the overall structure of the graph. We then analyze the eigenvalues (λ) of the Laplcian to compute the von Neumann entropy using the formula:</p>
+          <p class="formula">S = − ∑ λ ln λ</p>
         </div>
 
         <div class="box">
-          <h3>Why It Matters</h3>
+          <h3>Key Takeaways</h3>
           <ul>
-            <li>It helps us understand how ordered or random a network is.</li>
-            <li>It shows how complex the graph’s connections are.</li>
-            <li>It can be used in real‑world problems like analyzing social networks, recognizing patterns, or comparing different networks.</li>
+            <li>Entropy measures uncertainty or disorder in a system.</li>
+            <li>Different types of entropy connect ideas from thermodynamics, quantum mechanics, and information theory.</li>
+            <li>Because continuous systems can be hard to solve, we often discretize them and use linear algebra to study them more easily.</li>
+            <li>Von Neumann entropy of graphs applies these concepts to networks, helping us understand their structure and complexity.</li>
           </ul>
-          <p>In short, von Neumann entropy gives us a number that tells how complex or disordered a graph is, helping us see patterns and structure in networks.</p>
         </div>
       </section>
-    </section>
   </main>
 
   <footer>
@@ -155,3 +162,4 @@
   </footer>
 </body>
 </html>
+
