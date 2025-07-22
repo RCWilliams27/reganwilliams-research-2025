@@ -228,66 +228,70 @@
         <p class="formula">S = ∑ λ log λ</p>
       </div>
 
-      <div class="dropdown">
-  <button class="dropbtn">Example: Von Neumann Entropy of the Cycle Graph C₄</button>
-  <div class="dropdown-content">
-    <p><strong>Step 1: Label the vertices</strong>  
-    Let the vertices be labeled \( v_1, v_2, v_3, v_4 \), connected in a cycle.</p>
+     <div class="box">
+  <details>
+    <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">
+      Example: Von Neumann Entropy of the Cycle Graph C₄
+    </summary>
+    <div style="margin-top: 1em; line-height: 1.6em;">
+      <p><strong>Step 1: Label the vertices</strong><br>
+      Let the vertices be labeled \( v_1, v_2, v_3, v_4 \), connected in a cycle.</p>
 
-    <p><strong>Step 2: Degree matrix \( D \)</strong>  
-    Each vertex in \( C_4 \) has degree 2:</p>
-    <p class="formula">
-      D = diag(2, 2, 2, 2) = 
-      \[
-      \begin{bmatrix}
-      2 & 0 & 0 & 0 \\
-      0 & 2 & 0 & 0 \\
-      0 & 0 & 2 & 0 \\
-      0 & 0 & 0 & 2 \\
-      \end{bmatrix}
-      \]
-    </p>
+      <p><strong>Step 2: Degree matrix \( D \)</strong><br>
+      Each vertex in \( C_4 \) has degree 2:</p>
 
-    <p><strong>Step 3: Adjacency matrix \( A \)</strong></p>
-    <p class="formula">
-      A = 
-      \[
-      \begin{bmatrix}
-      0 & 1 & 0 & 1 \\
-      1 & 0 & 1 & 0 \\
-      0 & 1 & 0 & 1 \\
-      1 & 0 & 1 & 0 \\
-      \end{bmatrix}
-      \]
-    </p>
+      <p class="formula">
+        \[
+        D =
+        \begin{bmatrix}
+        2 & 0 & 0 & 0 \\
+        0 & 2 & 0 & 0 \\
+        0 & 0 & 2 & 0 \\
+        0 & 0 & 0 & 2 \\
+        \end{bmatrix}
+        \]
+      </p>
 
-    <p><strong>Step 4: Laplacian matrix \( \Delta = D - A \)</strong></p>
-    <p class="formula">
-      \[
-      \Delta = 
-      \begin{bmatrix}
-      2 & -1 & 0 & -1 \\
-      -1 & 2 & -1 & 0 \\
-      0 & -1 & 2 & -1 \\
-      -1 & 0 & -1 & 2 \\
-      \end{bmatrix}
-      \]
-    </p>
+      <p><strong>Step 3: Adjacency matrix \( A \)</strong></p>
+      <p class="formula">
+        \[
+        A =
+        \begin{bmatrix}
+        0 & 1 & 0 & 1 \\
+        1 & 0 & 1 & 0 \\
+        0 & 1 & 0 & 1 \\
+        1 & 0 & 1 & 0 \\
+        \end{bmatrix}
+        \]
+      </p>
 
-    <p><strong>Step 5: Compute eigenvalues \( \lambda_i \) of \( \Delta \)</strong><br>
-    The eigenvalues of the Laplacian of \( C_4 \) are:
-    \( \lambda = \{0, 2, 4, 2\} \)
-    </p>
+      <p><strong>Step 4: Laplacian matrix \( \Delta = D - A \)</strong></p>
+      <p class="formula">
+        \[
+        \Delta =
+        \begin{bmatrix}
+        2 & -1 & 0 & -1 \\
+        -1 & 2 & -1 & 0 \\
+        0 & -1 & 2 & -1 \\
+        -1 & 0 & -1 & 2 \\
+        \end{bmatrix}
+        \]
+      </p>
 
-    <p><strong>Step 6: Von Neumann entropy formula:</strong><br>
-    \( S = -\sum \lambda_i \log \lambda_i \) (excluding zero eigenvalues)</p>
+      <p><strong>Step 5: Eigenvalues of \( \Delta \)</strong><br>
+      The eigenvalues of the Laplacian of \( C_4 \) are:<br>
+      \( \lambda = \{0, 2, 4, 2\} \)</p>
 
-    <p class="formula">
-      S = 2 log 2 + 2 log 2 + 4 log 4 ≈ 8.3178
-    </p>
-  </div>
+      <p><strong>Step 6: Compute Von Neumann Entropy</strong><br>
+      Using \( S = -\sum \lambda_i \log \lambda_i \) (excluding zero eigenvalues):</p>
+
+      <p class="formula">
+        S = 2 log 2 + 2 log 2 + 4 log 4 ≈ 8.3178
+      </p>
+    </div>
+  </details>
 </div>
-
+      
       <div class="box">
         <h3>Key Takeaways</h3>
         <ul>
