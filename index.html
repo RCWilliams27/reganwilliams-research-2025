@@ -218,7 +218,24 @@
         <details>
           <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">Example: Von Neumann Entropy of the Cycle Graph C₄</summary>
           <div style="margin-top: 1em; line-height: 1.6em;">
-            <p><strong>Step 1:</strong> Label vertices \(v_1\) through \(v_4\), connected in a cycle.</p>
+             <p><strong>Step 1:</strong> Label vertices \(v_1\) through \(v_4\), connected in a cycle.</p>
+
+              <svg width="200" height="200" viewBox="0 0 200 200">
+              <line x1="50" y1="50" x2="150" y2="50" class="edge"/>
+              <line x1="150" y1="50" x2="150" y2="150" class="edge"/>
+              <line x1="150" y1="150" x2="50" y2="150" class="edge"/>
+              <line x1="50" y1="150" x2="50" y2="50" class="edge"/>
+  
+              <circle cx="50" cy="50" r="10" class="node"/>
+              <circle cx="150" cy="50" r="10" class="node"/>
+              <circle cx="150" cy="150" r="10" class="node"/>
+              <circle cx="50" cy="150" r="10" class="node"/>
+
+              <text x="50" y="45" class="label">\(v_1\)</text>
+              <text x="150" y="45" class="label">\(v_2\)</text>
+              <text x="150" y="170" class="label">\(v_3\)</text>
+              <text x="50" y="170" class="label">\(v_4\)</text>
+              </svg>
             <p><strong>Step 2:</strong> Degree matrix \(D\):<br>
               \[
               D = \begin{bmatrix}
@@ -239,9 +256,9 @@
               \end{bmatrix}
               \]
             </p>
-            <p><strong>Step 4:</strong> Laplacian \(L = D - A\):<br>
+            <p><strong>Step 4:</strong> Laplacian \(\Delta = D - A\):<br>
               \[
-              L = \begin{bmatrix}
+              \Delta = \begin{bmatrix}
               2 & -1 & 0 & -1 \\
               -1 & 2 & -1 & 0 \\
               0 & -1 & 2 & -1 \\
@@ -250,9 +267,9 @@
               \]
             </p>
             <p><strong>Step 5:</strong> Eigenvalues: \( \{0, 2, 4, 2\} \)</p>
-            <p><strong>Step 6:</strong> Compute \(S = -\sum \lambda \log \lambda \), excluding \(0\):<br>
+            <p><strong>Step 6:</strong> Compute \(S = \sum \lambda \log \lambda \), excluding \(0\):<br>
               \[
-              S = - (2 \log 2 + 2 \log 2 + 4 \log 4) ≈ 8.3178
+              S = 2 \log 2 + 2 \log 2 + 4 \log 4 ≈ 8.3178
               \]
             </p>
           </div>
