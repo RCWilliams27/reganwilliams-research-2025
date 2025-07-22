@@ -50,10 +50,9 @@
       color: #333;
       margin-top: 0;
     }
-    /* Center formulas */
     .formula {
       text-align: center;
-      font-family: Arial, sans-serif; /* consistent font */
+      font-family: Arial, sans-serif;
       font-weight: bold;
       font-size: 1.1em;
       margin: 1em 0;
@@ -80,7 +79,7 @@
   <main>
     <section>
       <h2>Project Overview</h2>
-      <p>This research project explores the intersection of spectral graph theory and quantum mechanics. We focus on computing various types of graph entropy to understand their significance in both mathematical and physical contexts. Our goal is to model entropy through graphs by directly calculating it and examining how operations like rewiring and gluing affect its behavior. This site presents theoretical concepts, visualizations, and daily notes from our research process.</p>
+      <p>This research project explores the intersection of spectral graph theory and quantum mechanics. We focus on computing various types of graph entropy to understand their significance in both mathematical and physical contexts. Our goal is to study entropy by directly calculating it as well as examining how graph operations like rewiring and gluing affect its behavior. This site presents theoretical concepts, visualizations, and daily notes from our research process.</p>
     </section>
 
     <section class="notes">
@@ -97,7 +96,7 @@
 
       <div class="box">
         <h3>Why Is It Important?</h3>
-        <p>Entropy shows up across many fields of science, helping us understand everything from heat to information to the structure of the universe. There are several main types of entropy:</p>
+        <p>Entropy appears across many fields of science, helping us understand everything from heat to information to the structure of the universe. There are several major types of entropy:</p>
         <ul>
           <li>Boltzmann Entropy</li>
           <li>Gibbs Entropy</li>
@@ -109,51 +108,49 @@
 
       <div class="box">
         <h3>Why Graphs?</h3>
-        <p>Many real-world systems, such as epidemics, social networks, the internet, and key physical processes, involve entropy. Measuring this entropy helps us understand and predict their behavior. However, these systems are too complex to model using continuous equations alone. By discretizing these problems and applying linear algebra, we can study them more effectively. Graph theory provides a natural framework: we represent complex systems as networks of vertices and edges, studied via matrices. These matrices capture structural features closely tied to entropy. This graph-based, linear algebra approach forms the foundation of our research into the entropy of networks.</p>
+        <p>Many real-world systems—epidemics, social networks, the internet, and physical processes—exhibit entropy. Measuring that entropy helps us understand and predict their behavior. But these systems are too complex to model with continuous equations alone. By discretizing them and applying linear algebra, we can study them more effectively. Graph theory provides a natural framework: we represent complex systems as networks of vertices and edges and analyze their structure using matrices. These matrices reflect patterns tied closely to entropy, making this approach central to our work.</p>
       </div>
 
-      <section>
-        <h2>Von Neumann Entropy</h2>
+      <h2>Von Neumann Entropy</h2>
 
-        <div class="box">
-          <h3>Our Focus</h3>
-          <p>In this project, we use the spectrum of a graph’s Laplacian matrix to calculate von Neumann entropy. We then explore how it reflects a network's structural complexity and disorder. This led us to ask several questions:</p>
-          <ul>
-            <li>How does the entropy of well‑known graphs compare, and how are these differences reflected in their structure?</li>
-            <li>Can we break a large graph into parts, calculate entropy for each, and then "glue" the pieces back together to calculate a total entropy value?</li>
-            <li>How does entropy change when we rewire a graph’s connections?</li>
-          </ul>
-        </div>
+      <div class="box">
+        <h3>Our Focus</h3>
+        <p>In this project, we use the spectrum of a graph’s Laplacian matrix to calculate von Neumann entropy. We then explore how it reflects a network's structural complexity and disorder. This led us to ask several questions:</p>
+        <ul>
+          <li>How does the entropy of well‑known graphs compare, and how are these differences reflected in their structure?</li>
+          <li>Can we break a large graph into parts, calculate entropy for each, and then "glue" the pieces back together to calculate a total entropy value?</li>
+          <li>How does entropy change when we rewire a graph’s connections?</li>
+        </ul>
+      </div>
 
-        <div class="box">
-          <h3>What Is Von Neumann Entropy?</h3>
-          <p>Von Neumann entropy measures how complex or disordered a graph is by analyzing its structure.</p>
+      <div class="box">
+        <h3>What Is Von Neumann Entropy?</h3>
+        <p>Von Neumann entropy measures how complex or disordered a graph is by analyzing its structure.</p>
 
-          <p>How We Calculate It:</p>
-          
-          <p>Degree matrix (D): This matrix shows how many connections each vertex has. Each diagonal entry tells you the number of edges connected to that vertex.</p>
-          
-          <p>Adjacency matrix (A): This matrix shows which vertices are connected. If two vertices share an edge, the matrix entry is 1; if not, it’s 0.</p>
-          
-          <p>The Laplacian matrix (∆): This matrix combines the above information by subtracting the adjacency matrix from the degree matrix, helping us analyze the structure and properties of the graph.</p>
-          
-          <p class="formula">∆ = D − A</p>
-          
-          <p>We then analyze the eigenvalues (λ) of the Laplacian to compute the von Neumann entropy using the formula:</p>
-          
-          <p class="formula">S = − ∑ λ ln λ</p>
-        </div>
+        <p><strong>How We Calculate It:</strong></p>
+        
+        <p><strong>Degree matrix (D):</strong> Shows how many connections each vertex has. Each diagonal entry gives the number of edges connected to that vertex.</p>
+        
+        <p><strong>Adjacency matrix (A):</strong> Shows which vertices are directly connected. If two vertices share an edge, the matrix entry is 1; otherwise, it's 0.</p>
+        
+        <p><strong>Laplacian matrix (∆):</strong> Formed by subtracting the adjacency matrix from the degree matrix. This matrix captures how the graph is structured overall.</p>
+        
+        <p class="formula">∆ = D − A</p>
+        
+        <p>We then analyze the eigenvalues (λ) of the Laplacian to compute von Neumann entropy using:</p>
+        
+        <p class="formula">S = − ∑ λ log λ</p>
+      </div>
 
-        <div class="box">
-          <h3>Key Takeaways</h3>
-          <ul>
-            <li>Entropy measures uncertainty or disorder in a system.</li>
-            <li>Different types of entropy connect ideas from thermodynamics, quantum mechanics, and information theory.</li>
-            <li>Because continuous systems can be hard to solve, we often discretize them and use linear algebra to study them more easily.</li>
-            <li>Von Neumann entropy of graphs applies these concepts to networks, helping us understand their structure and complexity.</li>
-          </ul>
-        </div>
-      </section>
+      <div class="box">
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>Entropy quantifies uncertainty or disorder in a system.</li>
+          <li>Different kinds of entropy connect concepts from thermodynamics, quantum mechanics, and information theory.</li>
+          <li>To make complex systems more manageable, we discretize them and use linear algebra to explore their behavior.</li>
+          <li>Von Neumann entropy applies these principles to graphs, helping us measure and understand their structure and complexity.</li>
+        </ul>
+      </div>
     </section>
   </main>
 
@@ -162,3 +159,4 @@
   </footer>
 </body>
 </html>
+
