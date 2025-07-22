@@ -83,7 +83,10 @@
       text-align: center;
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
       transition: box-shadow 0.3s ease;
-      cursor: zoom-in;
+      cursor: pointer;
+    }
+    .image-row figure:hover {
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
     .image-row img {
       max-width: 100%;
@@ -96,6 +99,14 @@
       .image-row figure {
         flex: 1 1 100%;
       }
+    }
+    .notes a {
+      color: #007acc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .notes a:hover {
+      text-decoration: underline;
     }
     .box.graph-image img {
       max-width: 60%;
@@ -135,21 +146,22 @@
       margin-top: 0.3em;
     }
     .lightbox {
-      display: none;
       position: fixed;
-      z-index: 1000;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(255, 255, 255, 0.97);
-      justify-content: center;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
       align-items: center;
-      cursor: zoom-out;
+      justify-content: center;
+      z-index: 9999;
     }
     .lightbox img {
       max-width: 90%;
       max-height: 90%;
       border-radius: 8px;
+      box-shadow: 0 0 20px white;
     }
   </style>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -184,9 +196,10 @@
 
     <section>
       <h2>Entropy & Graphs</h2>
+
       <div class="box">
         <h3>What Is Entropy?</h3>
-        <p>Imagine your bedroom right after you’ve cleaned it...</p>
+        <p>Imagine your bedroom right after you’ve cleaned it: your bed is made, your desk is organized, and your clothes are neatly put away. We can describe this as a low-entropy state because there are very few ways to arrange the room without creating disorder. In contrast, there are countless messy arrangements. Systems naturally tend to move toward these more disordered states simply because they are far more numerous. Entropy measures the amount of disorder or uncertainty in a system. More precisely, it counts the number of microscopic configurations (microstates) that correspond to the same overall condition (macrostate). Since disordered microstates vastly outnumber ordered ones, systems tend to evolve from low-entropy (ordered) to high-entropy (disordered) states.</p>
 
         <h3>Entropy Visualizations</h3>
         <div class="image-row">
@@ -204,9 +217,125 @@
           </figure>
         </div>
       </div>
-      
+
+      <div class="box graph-image">
+        <h3>Why Graphs?</h3>
+        <p>Many real-world systems (epidemics, social networks, the internet, physical processes) exhibit entropy. Measuring that entropy helps us understand and predict their behavior. But these systems are too complex to model with continuous equations alone. By discretizing them and applying linear algebra techniques, we can study them more effectively. Graph theory provides a natural framework for this discretization: we represent complex systems as networks of vertices and edges and analyze their structure using matrices.</p>
+        <div class="image-row" style="max-width: 600px; margin: 0 auto;">
+          <img src="images/graph-theory.png" alt="Image of a graph" />
+          <img src="images/graph-theory2.png" alt="Graph theory applications" />
+        </div>
+      </div>
+
+      <div class="box">
+        <details>
+          <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">Types of Graphs</summary>
+          <ul style="margin-top: 1em; line-height: 1.6em; padding-left: 1.2em;">
+            <li>Path Graph</li>
+            <li>Tree Graph</li>
+            <li>Cycle Graph</li>
+            <li>Star Graph</li>
+            <li>Lattice</li>
+            <li>Torus</li>
+            <li>Complete Bipartite Graph</li>
+            <li>Complete Graph</li>
+            <a href="pdfs/Types-of-Graphs-Notes.pdf" target="_blank">Types of Graphs Research Notes</a>
+          </ul>
+        </details>
+      </div>
+
+      <h2>Von Neumann Entropy</h2>
+
+      <div class="box">
+        <h3>What Is Von Neumann Entropy?</h3>
+        <p>Von Neumann entropy measures how complex or disordered a graph is by analyzing its structure.</p>
+        <p><strong>How We Calculate It:</strong></p>
+        <p><strong>Degree matrix (D):</strong> Shows how many connections each vertex has. Each diagonal entry gives the number of edges connected to that vertex.</p>
+        <p><strong>Adjacency matrix (A):</strong> Shows which vertices are directly connected. If two vertices share an edge, the matrix entry is 1; otherwise, it's 0.</p>
+        <p><strong>Laplacian matrix (∆):</strong> Formed by subtracting the adjacency matrix from the degree matrix. This matrix captures how the graph is structured overall.</p>
+        <p class="formula">∆ = D − A</p>
+        <p>We then analyze the eigenvalues (λ) of the Laplacian to compute von Neumann entropy using:</p>
+        <p class="formula">S = ∑ λ log λ</p>
+      </div>
+
+      <div class="box">
+        <details>
+          <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">Example: Von Neumann Entropy of the Cycle Graph C₄</summary>
+          <div style="display: flex; flex-wrap: wrap; gap: 1em; margin-top: 1em;">
+            <div style="flex: 1 1 300px;">
+              <p><strong>Step 1:</strong> Label vertices \(v_1\) through \(v_4\), connected in a cycle.</p>
+              <p><strong>Step 2:</strong> Degree matrix \(D\):</p>
+              <p>
+                \[
+                D = \begin{bmatrix}
+                2 & 0 & 0 & 0 \\
+                0 & 2 & 0 & 0 \\
+                0 & 0 & 2 & 0 \\
+                0 & 0 & 0 & 2
+                \end{bmatrix}
+                \]
+              </p>
+              <p><strong>Step 3:</strong> Adjacency matrix \(A\):</p>
+              <p>
+                \[
+                A = \begin{bmatrix}
+                0 & 1 & 0 & 1 \\
+                1 & 0 & 1 & 0 \\
+                0 & 1 & 0 & 1 \\
+                1 & 0 & 1 & 0
+                \end{bmatrix}
+                \]
+              </p>
+              <p><strong>Step 4:</strong> Laplacian \(\Delta = D - A\):</p>
+              <p>
+                \[
+                \Delta = \begin{bmatrix}
+                2 & -1 & 0 & -1 \\
+                -1 & 2 & -1 & 0 \\
+                0 & -1 & 2 & -1 \\
+                -1 & 0 & -1 & 2
+                \end{bmatrix}
+                \]
+              </p>
+              <p><strong>Step 5:</strong> Eigenvalues: \( \{0, 2, 4, 2\} \)</p>
+              <p><strong>Step 6:</strong> Compute \(S = \sum \lambda \log \lambda\), excluding \(0\):</p>
+              <p>
+                \[
+                S = 2 \log 2 + 2 \log 2 + 4 \log 4 \approx 8.3178
+                \]
+              </p>
+            </div>
+            <div style="flex: 1 1 250px; text-align: center; min-width: 250px;">
+              <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="30" r="8" fill="black" />
+                <circle cx="170" cy="100" r="8" fill="black" />
+                <circle cx="100" cy="170" r="8" fill="black" />
+                <circle cx="30" cy="100" r="8" fill="black" />
+                <line x1="100" y1="30" x2="170" y2="100" stroke="black" stroke-width="2" />
+                <line x1="170" y1="100" x2="100" y2="170" stroke="black" stroke-width="2" />
+                <line x1="100" y1="170" x2="30" y2="100" stroke="black" stroke-width="2" />
+                <line x1="30" y1="100" x2="100" y2="30" stroke="black" stroke-width="2" />
+              </svg>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="box">
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>Entropy quantifies uncertainty or disorder in a system.</li>
+          <li>Different kinds of entropy connect concepts from thermodynamics, quantum mechanics, and information theory.</li>
+          <li>To make complex systems more manageable, we discretize them and use linear algebra to explore their behavior.</li>
+          <li>Von Neumann entropy applies these principles to graphs, helping us measure and understand their structure and complexity.</li>
+        </ul>
+      </div>
     </section>
   </main>
+
+  <footer>
+    <p>Site built by Regan Williams.</p>
+  </footer>
 
   <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
     <img src="" alt="Enlarged image" />
@@ -245,11 +374,5 @@
       }
     });
   </script>
-
-  <footer>
-    <p>Site built by Regan Williams.</p>
-  </footer>
 </body>
 </html>
-
-
