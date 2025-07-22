@@ -73,7 +73,7 @@
       margin-top: 1em;
     }
     .image-row figure {
-      flex: 1 1 calc(33% - 1rem);
+      flex: 1 1 calc(50% - 0.5rem);
       margin: 0;
       background: white;
       border: 1px solid #ccc;
@@ -93,6 +93,7 @@
       display: block;
       margin: 0 auto;
       border-radius: 4px;
+      cursor: pointer;
     }
     @media (max-width: 600px) {
       .image-row figure {
@@ -136,13 +137,42 @@
       font-family: Arial, sans-serif;
       user-select: none;
     }
-    .box svg {
+    .steps-matrix-container {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      margin-top: 1em;
+      flex-wrap: wrap;
+    }
+    .steps {
+      flex: 1 1 200px;
+      line-height: 1.5;
+      font-size: 1em;
+      color: #222;
+      min-width: 180px;
+    }
+    .steps p {
+      margin: 0.4em 0;
+    }
+    .graph-matrices {
+      flex: 2 1 450px;
+      text-align: center;
+      min-width: 280px;
+    }
+    .graph-matrices svg {
       max-width: 250px;
       height: auto;
-      display: inline-block;
-      vertical-align: top;
-      margin-left: 0;
-      margin-top: 0.3em;
+      margin-bottom: 1em;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .matrix-latex {
+      font-family: 'Times New Roman', serif;
+      font-size: 1em;
+      text-align: center;
+      margin-bottom: 1em;
+      white-space: pre-wrap;
     }
   </style>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -204,8 +234,14 @@
       <div class="box graph-image">
         <h3>Why Graphs?</h3>
         <p>Many real-world systems (epidemics, social networks, the internet, physical processes) exhibit entropy. Measuring that entropy helps us understand and predict their behavior. But these systems are too complex to model with continuous equations alone. By discretizing them and applying linear algebra techniques, we can study them more effectively. Graph theory provides a natural framework for this discretization: we represent complex systems as networks of vertices and edges and analyze their structure using matrices.</p>
-        <img src="images/graph-theory.png" alt="Image of a graph" />
-        <img src="images/graph-theory2.png" alt="Graph theory applications" />
+        <div class="image-row">
+          <figure>
+            <img src="images/graph-theory.png" alt="Image of a graph" />
+          </figure>
+          <figure>
+            <img src="images/graph-theory2.png" alt="Graph theory applications"/>
+          </figure>
+        </div>
       </div>
 
       <div class="box">
@@ -240,60 +276,68 @@
       </div>
 
       <div class="box">
-        <details>
+        <details open>
           <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">Example: Von Neumann Entropy of the Cycle Graph C₄</summary>
-          <div style="margin-top: 1em; line-height: 1.6em; max-width: 600px; margin-left: auto; margin-right: auto;">
-            <p style="text-align: center;"><strong>Step 1:</strong> Label vertices \(v_1\) through \(v_4\), connected in a cycle.</p>
-            <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: 0 auto;">
-              <line x1="50" y1="50" x2="150" y2="50" class="edge"/>
-              <line x1="150" y1="50" x2="150" y2="150" class="edge"/>
-              <line x1="150" y1="150" x2="50" y2="150" class="edge"/>
-              <line x1="50" y1="150" x2="50" y2="50" class="edge"/>
-              <circle cx="50" cy="50" r="6" class="node"/>
-              <circle cx="150" cy="50" r="6" class="node"/>
-              <circle cx="150" cy="150" r="6" class="node"/>
-              <circle cx="50" cy="150" r="6" class="node"/>
-              <text x="50" y="40" class="label">\(v_1\)</text>
-              <text x="150" y="40" class="label">\(v_2\)</text>
-              <text x="150" y="170" class="label">\(v_3\)</text>
-              <text x="50" y="170" class="label">\(v_4\)</text>
-            </svg>
-            <p><strong>Step 2:</strong> Degree matrix \(D\):<br>
-              \[
-              D = \begin{bmatrix}
-              2 & 0 & 0 & 0 \\
-              0 & 2 & 0 & 0 \\
-              0 & 0 & 2 & 0 \\
-              0 & 0 & 0 & 2
-              \end{bmatrix}
-              \]
-            </p>
-            <p><strong>Step 3:</strong> Adjacency matrix \(A\):<br>
-              \[
-              A = \begin{bmatrix}
-              0 & 1 & 0 & 1 \\
-              1 & 0 & 1 & 0 \\
-              0 & 1 & 0 & 1 \\
-              1 & 0 & 1 & 0
-              \end{bmatrix}
-              \]
-            </p>
-            <p><strong>Step 4:</strong> Laplacian \(\Delta = D - A\):<br>
-              \[
-              \Delta = \begin{bmatrix}
-              2 & -1 & 0 & -1 \\
-              -1 & 2 & -1 & 0 \\
-              0 & -1 & 2 & -1 \\
-              -1 & 0 & -1 & 2
-              \end{bmatrix}
-              \]
-            </p>
-            <p><strong>Step 5:</strong> Eigenvalues: \( \{0, 2, 4, 2\} \)</p>
-            <p><strong>Step 6:</strong> Compute \(S = \sum \lambda \log \lambda\), excluding \(0\):<br>
-              \[
-              S = 2 \log 2 + 2 \log 2 + 4 \log 4 \approx 8.3178
-              \]
-            </p>
+          <div class="steps-matrix-container">
+            <div class="steps">
+              <p><strong>Step 1:</strong> Label vertices \(v_1\) through \(v_4\), connected in a cycle.</p>
+              <p><strong>Step 2:</strong> Degree matrix \(D\):</p>
+              <p><strong>Step 3:</strong> Adjacency matrix \(A\):</p>
+              <p><strong>Step 4:</strong> Laplacian \(\Delta = D - A\):</p>
+              <p><strong>Step 5:</strong> Eigenvalues: \( \{0, 2, 4, 2\} \)</p>
+              <p><strong>Step 6:</strong> Compute \(S = \sum \lambda \log \lambda\), excluding \(0\):</p>
+            </div>
+            <div class="graph-matrices">
+              <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <line x1="50" y1="50" x2="150" y2="50" class="edge"/>
+                <line x1="150" y1="50" x2="150" y2="150" class="edge"/>
+                <line x1="150" y1="150" x2="50" y2="150" class="edge"/>
+                <line x1="50" y1="150" x2="50" y2="50" class="edge"/>
+                <circle cx="50" cy="50" r="6" class="node"/>
+                <circle cx="150" cy="50" r="6" class="node"/>
+                <circle cx="150" cy="150" r="6" class="node"/>
+                <circle cx="50" cy="150" r="6" class="node"/>
+                <text x="50" y="40" class="label">\(v_1\)</text>
+                <text x="150" y="40" class="label">\(v_2\)</text>
+                <text x="150" y="170" class="label">\(v_3\)</text>
+                <text x="50" y="170" class="label">\(v_4\)</text>
+              </svg>
+              <div class="matrix-latex">
+                \[
+                D = \begin{bmatrix}
+                2 & 0 & 0 & 0 \\
+                0 & 2 & 0 & 0 \\
+                0 & 0 & 2 & 0 \\
+                0 & 0 & 0 & 2
+                \end{bmatrix}
+                \]
+              </div>
+              <div class="matrix-latex">
+                \[
+                A = \begin{bmatrix}
+                0 & 1 & 0 & 1 \\
+                1 & 0 & 1 & 0 \\
+                0 & 1 & 0 & 1 \\
+                1 & 0 & 1 & 0
+                \end{bmatrix}
+                \]
+              </div>
+              <div class="matrix-latex">
+                \[
+                \Delta = \begin{bmatrix}
+                2 & -1 & 0 & -1 \\
+                -1 & 2 & -1 & 0 \\
+                0 & -1 & 2 & -1 \\
+                -1 & 0 & -1 & 2
+                \end{bmatrix}
+                \]
+              </div>
+              <div class="matrix-latex">
+                \[
+                S = 2 \log 2 + 2 \log 2 + 4 \log 4 \approx 8.3178
+                \]
+              </div>
+            </div>
           </div>
         </details>
       </div>
@@ -314,4 +358,4 @@
     <p>Site built by Regan Williams.</p>
   </footer>
 </body>
-</html>
+</html>   
