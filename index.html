@@ -114,6 +114,10 @@
       text-decoration: underline;
     }
   </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 </head>
 <body>
   <header>
@@ -162,17 +166,17 @@
         </div>
       </div>
 
-  <div class="box">
-    <h3>Why Is It Important?</h3>
-    <p>Entropy appears across many fields of science, helping us understand everything from heat to information to the structure of the universe. There are several major types of entropy:</p>
-      <ul style="list-style-type: disc; padding-left: 1.2em;">
-        <li style="margin-bottom: 1.3em;"><strong>Boltzmann Entropy:</strong> Measures how many microscopic ways a system (like a gas) can be arranged while appearing the same overall. More arrangements = higher entropy.</li>
-        <li style="margin-bottom: 1.3em;"><strong>Gibbs Entropy:</strong> A generalization of Boltzmann entropy that uses probabilities to account for how likely each arrangement is. It measures average disorder.</li>
-        <li style="margin-bottom: 1.3em;"><strong>Shannon Entropy:</strong> Measures how uncertain or unpredictable information is; higher entropy means more randomness in a message.</li>
-        <li style="margin-bottom: 1.3em;"><strong>Von Neumann Entropy:</strong> A quantum version of Shannon entropy that measures how uncertain or disordered a quantum system is.</li>
-        <li style="margin-bottom: 1.3em;"><strong>Bekenstein-Hawking Entropy:</strong> Measures the hidden information inside a black hole.</li>
-      </ul>
-  </div>
+      <div class="box">
+        <h3>Why Is It Important?</h3>
+        <p>Entropy appears across many fields of science, helping us understand everything from heat to information to the structure of the universe. There are several major types of entropy:</p>
+        <ul style="list-style-type: disc; padding-left: 1.2em;">
+          <li style="margin-bottom: 1.3em;"><strong>Boltzmann Entropy:</strong> Measures how many microscopic ways a system (like a gas) can be arranged while appearing the same overall. More arrangements = higher entropy.</li>
+          <li style="margin-bottom: 1.3em;"><strong>Gibbs Entropy:</strong> A generalization of Boltzmann entropy that uses probabilities to account for how likely each arrangement is. It measures average disorder.</li>
+          <li style="margin-bottom: 1.3em;"><strong>Shannon Entropy:</strong> Measures how uncertain or unpredictable information is; higher entropy means more randomness in a message.</li>
+          <li style="margin-bottom: 1.3em;"><strong>Von Neumann Entropy:</strong> A quantum version of Shannon entropy that measures how uncertain or disordered a quantum system is.</li>
+          <li style="margin-bottom: 1.3em;"><strong>Bekenstein-Hawking Entropy:</strong> Measures the hidden information inside a black hole.</li>
+        </ul>
+      </div>
 
       <div class="box">
         <h3>Why Graphs?</h3>
@@ -180,18 +184,18 @@
       </div>
 
       <div class="box">
-      <details>
+        <details>
           <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">Types of Graphs</summary>
           <ul style="margin-top: 1em; line-height: 1.6em; padding-left: 1.2em;">
-              <li>Path Graph</li>
-              <li>Tree Graph</li>
-              <li>Cycle Graph</li>
-              <li>Star Graph</li>
-              <li>Lattice</li>
-              <li>Torus</li>
-              <li>Complete Bipartite Graph</li>
-              <li>Complete Graph</li>
-              <a href="pdfs/Types-of-Graphs-Notes.pdf" target="_blank">Types of Graphs Research Notes</a>
+            <li>Path Graph</li>
+            <li>Tree Graph</li>
+            <li>Cycle Graph</li>
+            <li>Star Graph</li>
+            <li>Lattice</li>
+            <li>Torus</li>
+            <li>Complete Bipartite Graph</li>
+            <li>Complete Graph</li>
+            <a href="pdfs/Types-of-Graphs-Notes.pdf" target="_blank">Types of Graphs Research Notes</a>
           </ul>
         </details>
       </div>
@@ -199,99 +203,62 @@
       <h2>Von Neumann Entropy</h2>
 
       <div class="box">
-        <h3>Our Focus</h3>
-        <p>This project centers on Von Neumann entropy. By analyzing the spectrum of a graph’s Laplacian matrix, we calculate entropy to reveal insights into the network’s complexity and structural disorder. This led us to ask several key questions:</p>
-        <ul>
-          <li>How does the entropy of well‑known graphs compare, and how are these differences reflected in their structure?</li>
-          <li>Can we break a large graph into parts, calculate entropy for each, and then "glue" the pieces back together to calculate a total entropy value?</li>
-          <li>How does entropy relate to graph topology, including the Euler characteristic, connectivity, and independent cycles?</li>
-          <li>How does entropy change when we rewire a graph’s connections?</li>
-        </ul>
+        <h3>What Is Von Neumann Entropy?</h3>
+        <p>Von Neumann entropy measures how complex or disordered a graph is by analyzing its structure.</p>
+        <p><strong>How We Calculate It:</strong></p>
+        <p><strong>Degree matrix (D):</strong> Shows how many connections each vertex has. Each diagonal entry gives the number of edges connected to that vertex.</p>
+        <p><strong>Adjacency matrix (A):</strong> Shows which vertices are directly connected. If two vertices share an edge, the matrix entry is 1; otherwise, it's 0.</p>
+        <p><strong>Laplacian matrix (∆):</strong> Formed by subtracting the adjacency matrix from the degree matrix. This matrix captures how the graph is structured overall.</p>
+        <p class="formula">∆ = D − A</p>
+        <p>We then analyze the eigenvalues (λ) of the Laplacian to compute von Neumann entropy using:</p>
+        <p class="formula">S = −∑ λ log λ</p>
       </div>
 
       <div class="box">
-        <h3>What Is Von Neumann Entropy?</h3>
-        <p>Von Neumann entropy measures how complex or disordered a graph is by analyzing its structure.</p>
-
-        <p><strong>How We Calculate It:</strong></p>
-        
-        <p><strong>Degree matrix (D):</strong> Shows how many connections each vertex has. Each diagonal entry gives the number of edges connected to that vertex.</p>
-        
-        <p><strong>Adjacency matrix (A):</strong> Shows which vertices are directly connected. If two vertices share an edge, the matrix entry is 1; otherwise, it's 0.</p>
-        
-        <p><strong>Laplacian matrix (∆):</strong> Formed by subtracting the adjacency matrix from the degree matrix. This matrix captures how the graph is structured overall.</p>
-        
-        <p class="formula">∆ = D − A</p>
-        
-        <p>We then analyze the eigenvalues (λ) of the Laplacian to compute von Neumann entropy using:</p>
-        
-        <p class="formula">S = ∑ λ log λ</p>
+        <details>
+          <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">Example: Von Neumann Entropy of the Cycle Graph C₄</summary>
+          <div style="margin-top: 1em; line-height: 1.6em;">
+            <p><strong>Step 1:</strong> Label vertices \(v_1\) through \(v_4\), connected in a cycle.</p>
+            <p><strong>Step 2:</strong> Degree matrix \(D\):<br>
+              \[
+              D = \begin{bmatrix}
+              2 & 0 & 0 & 0 \\
+              0 & 2 & 0 & 0 \\
+              0 & 0 & 2 & 0 \\
+              0 & 0 & 0 & 2
+              \end{bmatrix}
+              \]
+            </p>
+            <p><strong>Step 3:</strong> Adjacency matrix \(A\):<br>
+              \[
+              A = \begin{bmatrix}
+              0 & 1 & 0 & 1 \\
+              1 & 0 & 1 & 0 \\
+              0 & 1 & 0 & 1 \\
+              1 & 0 & 1 & 0
+              \end{bmatrix}
+              \]
+            </p>
+            <p><strong>Step 4:</strong> Laplacian \(L = D - A\):<br>
+              \[
+              L = \begin{bmatrix}
+              2 & -1 & 0 & -1 \\
+              -1 & 2 & -1 & 0 \\
+              0 & -1 & 2 & -1 \\
+              -1 & 0 & -1 & 2
+              \end{bmatrix}
+              \]
+            </p>
+            <p><strong>Step 5:</strong> Eigenvalues: \( \{0, 2, 4, 2\} \)</p>
+            <p><strong>Step 6:</strong> Compute \(S = -\sum \lambda \log \lambda \), excluding \(0\):<br>
+              \[
+              S = - (2 \log 2 + 2 \log 2 + 4 \log 4) ≈ 8.3178
+              \]
+            </p>
+          </div>
+        </details>
       </div>
 
-     <div class="box">
-  <details>
-    <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">
-      Example: Von Neumann Entropy of the Cycle Graph C₄
-    </summary>
-    <div style="margin-top: 1em; line-height: 1.6em;">
-      <p><strong>Step 1: Label the vertices</strong><br>
-      Let the vertices be labeled \( v_1, v_2, v_3, v_4 \), connected in a cycle.</p>
-
-      <p><strong>Step 2: Degree matrix \( D \)</strong><br>
-      Each vertex in \( C_4 \) has degree 2:</p>
-
-      <p class="formula">
-        \[
-        D =
-        \begin{bmatrix}
-        2 & 0 & 0 & 0 \\
-        0 & 2 & 0 & 0 \\
-        0 & 0 & 2 & 0 \\
-        0 & 0 & 0 & 2 \\
-        \end{bmatrix}
-        \]
-      </p>
-
-      <p><strong>Step 3: Adjacency matrix \( A \)</strong></p>
-      <p class="formula">
-        \[
-        A =
-        \begin{bmatrix}
-        0 & 1 & 0 & 1 \\
-        1 & 0 & 1 & 0 \\
-        0 & 1 & 0 & 1 \\
-        1 & 0 & 1 & 0 \\
-        \end{bmatrix}
-        \]
-      </p>
-
-      <p><strong>Step 4: Laplacian matrix \( \Delta = D - A \)</strong></p>
-      <p class="formula">
-        \[
-        \Delta =
-        \begin{bmatrix}
-        2 & -1 & 0 & -1 \\
-        -1 & 2 & -1 & 0 \\
-        0 & -1 & 2 & -1 \\
-        -1 & 0 & -1 & 2 \\
-        \end{bmatrix}
-        \]
-      </p>
-
-      <p><strong>Step 5: Eigenvalues of \( \Delta \)</strong><br>
-      The eigenvalues of the Laplacian of \( C_4 \) are:<br>
-      \( \lambda = \{0, 2, 4, 2\} \)</p>
-
-      <p><strong>Step 6: Compute Von Neumann Entropy</strong><br>
-      Using \( S = -\sum \lambda_i \log \lambda_i \) (excluding zero eigenvalues):</p>
-
-      <p class="formula">
-        S = 2 log 2 + 2 log 2 + 4 log 4 ≈ 8.3178
-      </p>
-    </div>
-  </details>
-</div>
-      
       <div class="box">
         <h3>Key Takeaways</h3>
         <ul>
@@ -309,4 +276,3 @@
   </footer>
 </body>
 </html>
-
