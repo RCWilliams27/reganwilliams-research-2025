@@ -113,12 +113,18 @@
       display: block;
       margin: 1em auto;
       border-radius: 4px;
+      border: 1px solid #ccc;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .box.graph-image img:hover {
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
     .node {
       fill: #007acc;
       stroke: #004a99;
       stroke-width: 2;
-      r: 6;
     }
     .edge {
       stroke: #444;
@@ -131,10 +137,12 @@
       user-select: none;
     }
     .box svg {
-      display: block;
-      margin: 1em auto;
       max-width: 250px;
       height: auto;
+      display: inline-block;
+      vertical-align: top;
+      margin-left: 0;
+      margin-top: 0.3em;
     }
   </style>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -235,7 +243,6 @@
           <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">Example: Von Neumann Entropy of the Cycle Graph C₄</summary>
           <div style="margin-top: 1em; line-height: 1.6em;">
             <p><strong>Step 1:</strong> Label vertices \(v_1\) through \(v_4\), connected in a cycle.</p>
-
             <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
               <line x1="50" y1="50" x2="150" y2="50" class="edge"/>
               <line x1="150" y1="50" x2="150" y2="150" class="edge"/>
@@ -250,7 +257,6 @@
               <text x="150" y="170" class="label">\(v_3\)</text>
               <text x="50" y="170" class="label">\(v_4\)</text>
             </svg>
-
             <p><strong>Step 2:</strong> Degree matrix \(D\):<br>
               \[
               D = \begin{bmatrix}
