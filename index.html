@@ -99,11 +99,11 @@
         <h3>Why Is It Important?</h3>
         <p>Entropy appears across many fields of science, helping us understand everything from heat to information to the structure of the universe. There are several major types of entropy:</p>
         <ul>
-          <li>Boltzmann Entropy</li>
-          <li>Gibbs Entropy</li>
-          <li>Shannon Entropy</li>
-          <li>Von Neumann Entropy</li>
-          <li>Bekenstein-Hawking Entropy</li>
+          <li><strong>Boltzmann Entropy:</strong> Measures how many microscopic ways a system (like a gas) can be arranged while appearing the same overall. More arrangements = higher entropy.</li>
+          <li><strong>Gibbs Entropy:</strong> A generalization of Boltzmann entropy that uses probabilities to account for how likely each arrangement is. It measures average disorder.</li>
+          <li><strong>Shannon Entropy:</strong> Measures how uncertain or unpredictable information is; higher entropy means more randomness in a message.</li>
+          <li><strong>Von Neumann Entropy:</strong> A quantum version of Shannon entropy that measures how uncertain or disordered a quantum system is. </li>
+          <li><strong>Bekenstein-Hawking Entropy:</strong> Measures the hidden information inside a black hole. </li>
         </ul>
       </div>
 
@@ -116,10 +116,11 @@
 
       <div class="box">
         <h3>Our Focus</h3>
-        <p>In this project, we use the spectrum of a graph’s Laplacian matrix to calculate von Neumann entropy. We then explore how it reflects a network's structural complexity and disorder. This led us to ask several questions:</p>
+        <p>This project centers on Von Neumann entropy. By analyzing the spectrum of a graph’s Laplacian matrix, we calculate entropy to reveal insights into the network’s complexity and structural disorder. This led us to ask several key questions:</p>
         <ul>
           <li>How does the entropy of well‑known graphs compare, and how are these differences reflected in their structure?</li>
           <li>Can we break a large graph into parts, calculate entropy for each, and then "glue" the pieces back together to calculate a total entropy value?</li>
+          <li>How does entropy relate to graph topology, including the Euler characteristic, connectivity, and independent cycles?</li>
           <li>How does entropy change when we rewire a graph’s connections?</li>
         </ul>
       </div>
