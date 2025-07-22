@@ -76,7 +76,11 @@
       <h2>Project Results</h2>
       <div class="box">
         <h3>Summary of Findings</h3>
-      
+        <p> Results here </p>
+      </div>
+    </section>
+  </main>
+
   <footer>
     <p>Site built by Regan Williams.</p>
   </footer>
