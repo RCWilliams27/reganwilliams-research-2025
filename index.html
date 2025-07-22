@@ -9,6 +9,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       background-color: #f8f9fa;
+      color: #333;
     }
     header {
       background-color: #343a40;
@@ -47,8 +48,8 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
     h2, h3 {
-      color: #333;
       margin-top: 0;
+      color: #222;
     }
     .formula {
       text-align: center;
@@ -62,6 +63,55 @@
       color: white;
       text-align: center;
       padding: 1em 0;
+      margin-top: 3em;
+    }
+    .image-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 1em;
+    }
+    .image-row figure {
+      flex: 1 1 calc(33% - 1rem);
+      margin: 0;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 0.5rem;
+      box-sizing: border-box;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s ease;
+    }
+    .image-row figure:hover {
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .image-row img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 4px;
+    }
+    .image-row figcaption {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 0.3rem;
+      font-style: italic;
+    }
+    @media (max-width: 600px) {
+      .image-row figure {
+        flex: 1 1 100%;
+      }
+    }
+    .notes a {
+      color: #007acc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .notes a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -85,8 +135,9 @@
 
     <section class="notes">
       <h2>Daily Notes</h2>
-    <a href="Spectral-Graph-Theory-and-Quantum-Mechanics-Research-Notes.pdf" target="_blank">
-  Spectral Graph Theory & Quantum Mechanics Research Notes </a>
+      <a href="Spectral-Graph-Theory-and-Quantum-Mechanics-Research-Notes.pdf" target="_blank">
+        Spectral Graph Theory & Quantum Mechanics Research Notes
+      </a>
     </section>
 
     <section>
@@ -95,11 +146,20 @@
       <div class="box">
         <h3>What Is Entropy?</h3>
         <p>Entropy measures uncertainty or disorder in a system. More specifically, entropy reflects the number of different microscopic configurations (microstates) that correspond to the same observable condition (macrostate). Because there are naturally many more disordered configurations than ordered ones, systems evolve from low-entropy (more ordered) states to high-entropy (less ordered) states.</p>
-         <div class="image-row">
-          <img src="images/Entropy1.png" alt="Entropy image 1">
-          <img src="images/Entropy2.png" alt="Entropy image 2">
-          <img src="images/Entropy4.png" alt="Entropy image 3">
-        </div>  
+        <div class="image-row">
+          <figure>
+            <img src="images/Entropy1.png" alt="Entropy illustration showing microstates" />
+            <figcaption>Image: Kristina Armitage / Quanta Magazine</figcaption>
+          </figure>
+          <figure>
+            <img src="images/Entropy2.png" alt="Entropy representation with particles" />
+            <figcaption>Image: Kristina Armitage / Quanta Magazine</figcaption>
+          </figure>
+          <figure>
+            <img src="images/Entropy3.png" alt="Entropy visualization example" />
+            <figcaption>Image: Kristina Armitage / Quanta Magazine</figcaption>
+          </figure>
+        </div>
       </div>
 
       <div class="box">
@@ -109,14 +169,14 @@
           <li><strong>Boltzmann Entropy:</strong> Measures how many microscopic ways a system (like a gas) can be arranged while appearing the same overall. More arrangements = higher entropy.</li>
           <li><strong>Gibbs Entropy:</strong> A generalization of Boltzmann entropy that uses probabilities to account for how likely each arrangement is. It measures average disorder.</li>
           <li><strong>Shannon Entropy:</strong> Measures how uncertain or unpredictable information is; higher entropy means more randomness in a message.</li>
-          <li><strong>Von Neumann Entropy:</strong> A quantum version of Shannon entropy that measures how uncertain or disordered a quantum system is. </li>
-          <li><strong>Bekenstein-Hawking Entropy:</strong> Measures the hidden information inside a black hole. </li>
+          <li><strong>Von Neumann Entropy:</strong> A quantum version of Shannon entropy that measures how uncertain or disordered a quantum system is.</li>
+          <li><strong>Bekenstein-Hawking Entropy:</strong> Measures the hidden information inside a black hole.</li>
         </ul>
       </div>
 
       <div class="box">
         <h3>Why Graphs?</h3>
-        <p>Many real-world systems (epidemics, social networks, the internet, physical processes) exhibit entropy. Measuring that entropy helps us understand and predict their behavior. But these systems are too complex to model with continuous equations alone. By discretizing them and applying linear algebra techniques, we can study them more effectively. Graph theory provides a natural framework for this discretization: we represent complex systems as networks of vertices and edges and analyze their structure using matrices. </p>
+        <p>Many real-world systems (epidemics, social networks, the internet, physical processes) exhibit entropy. Measuring that entropy helps us understand and predict their behavior. But these systems are too complex to model with continuous equations alone. By discretizing them and applying linear algebra techniques, we can study them more effectively. Graph theory provides a natural framework for this discretization: we represent complex systems as networks of vertices and edges and analyze their structure using matrices.</p>
       </div>
 
       <h2>Von Neumann Entropy</h2>
