@@ -53,7 +53,8 @@
     /* Center formulas */
     .formula {
       text-align: center;
-      font-family: "Courier New", Courier, monospace;
+      font-family: Arial, sans-serif; /* keep consistent font */
+      font-weight: bold;
       font-size: 1.1em;
       margin: 1em 0;
     }
@@ -132,16 +133,18 @@
 
         <div class="box">
           <h3>What Is Von Neumann Entropy?</h3>
-          <p>Von Neumann entropy is a way to measure how complex or “disordered” a graph is by looking at its structure.</p>
+          <p>Von Neumann entropy measures how complex or disordered a graph is by analyzing its structure.</p>
+
           <p><strong>How We Calculate It:</strong></p>
-          <ul>
-            <li><strong>Degree matrix (D):</strong> This matrix shows how many connections each vertex has. Each diagonal entry tells you the number of edges coming out of that vertex.</li>
-            
-            <li><strong>Adjacency matrix (A):</strong> This matrix shows which vertices are connected. If two vertices share an edge, the matrix entry is 1; if not, it’s 0.</li>
-          </ul>
-          <p class="formula">The Laplacian matrix (∆) is found by subtracting the adjacency matrix from the degree matrix:</p>
+          
+          <p><strong>Degree matrix (D):</strong> This matrix shows how many connections each vertex has. Each diagonal entry tells you the number of edges connected to that vertex.</p>
+          
+          <p><strong>Adjacency matrix (A):</strong> This matrix shows which vertices are connected. If two vertices share an edge, the matrix entry is 1; if not, it’s 0.</p>
+          
           <p class="formula">∆ = D − A</p>
-          <p>This Laplacian matrix reflects both the individual connections of vertices and the overall structure of the graph. We then analyze the eigenvalues (λ) of the Laplcian to compute the von Neumann entropy using the formula:</p>
+          
+          <p>This Laplacian matrix captures both the individual vertex connections and the overall graph structure. We then analyze the eigenvalues (λ) of the Laplacian to compute the von Neumann entropy using the formula:</p>
+          
           <p class="formula">S = − ∑ λ ln λ</p>
         </div>
 
@@ -155,6 +158,7 @@
           </ul>
         </div>
       </section>
+    </section>
   </main>
 
   <footer>
