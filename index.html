@@ -241,64 +241,76 @@
         <p class="formula">S = ∑ λ log λ</p>
       </div>
 
-      <div class="box">
-        <details>
-          <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">Example: Von Neumann Entropy of the Cycle Graph C₄</summary>
-          <div style="margin-top: 1em; line-height: 1.6em; max-width: 600px; margin-left: auto; margin-right: auto;">
-            <p style="text-align: center;"><strong>Step 1:</strong> Label vertices \(v_1\) through \(v_4\), connected in a cycle.</p>
-            <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: 0 auto;">
-              <line x1="50" y1="50" x2="150" y2="50" class="edge"/>
-              <line x1="150" y1="50" x2="150" y2="150" class="edge"/>
-              <line x1="150" y1="150" x2="50" y2="150" class="edge"/>
-              <line x1="50" y1="150" x2="50" y2="50" class="edge"/>
-              <circle cx="50" cy="50" r="6" class="node"/>
-              <circle cx="150" cy="50" r="6" class="node"/>
-              <circle cx="150" cy="150" r="6" class="node"/>
-              <circle cx="50" cy="150" r="6" class="node"/>
-              <text x="50" y="40" class="label">\(v_1\)</text>
-              <text x="150" y="40" class="label">\(v_2\)</text>
-              <text x="150" y="170" class="label">\(v_3\)</text>
-              <text x="50" y="170" class="label">\(v_4\)</text>
-            </svg>
-            <p><strong>Step 2:</strong> Degree matrix \(D\):<br>
-              \[
-              D = \begin{bmatrix}
-              2 & 0 & 0 & 0 \\
-              0 & 2 & 0 & 0 \\
-              0 & 0 & 2 & 0 \\
-              0 & 0 & 0 & 2
-              \end{bmatrix}
-              \]
-            </p>
-            <p><strong>Step 3:</strong> Adjacency matrix \(A\):<br>
-              \[
-              A = \begin{bmatrix}
-              0 & 1 & 0 & 1 \\
-              1 & 0 & 1 & 0 \\
-              0 & 1 & 0 & 1 \\
-              1 & 0 & 1 & 0
-              \end{bmatrix}
-              \]
-            </p>
-            <p><strong>Step 4:</strong> Laplacian \(\Delta = D - A\):<br>
-              \[
-              \Delta = \begin{bmatrix}
-              2 & -1 & 0 & -1 \\
-              -1 & 2 & -1 & 0 \\
-              0 & -1 & 2 & -1 \\
-              -1 & 0 & -1 & 2
-              \end{bmatrix}
-              \]
-            </p>
-            <p><strong>Step 5:</strong> Eigenvalues: \( \{0, 2, 4, 2\} \)</p>
-            <p><strong>Step 6:</strong> Compute \(S = \sum \lambda \log \lambda\), excluding \(0\):<br>
-              \[
-              S = 2 \log 2 + 2 \log 2 + 4 \log 4 \approx 8.3178
-              \]
-            </p>
-          </div>
-        </details>
+     <div class="box">
+  <details>
+    <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">Example: Von Neumann Entropy of the Cycle Graph C₄</summary>
+    <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap; margin-top: 1em;">
+      
+      <div style="flex: 1 1 250px; min-width: 200px; padding-right: 1em;">
+        <p><strong>Step 1:</strong> Label vertices \(v_1\) through \(v_4\), connected in a cycle.</p>
+        <p><strong>Step 2:</strong> Degree matrix \(D\):</p>
+        <p>
+          \[
+          D = \begin{bmatrix}
+          2 & 0 & 0 & 0 \\
+          0 & 2 & 0 & 0 \\
+          0 & 0 & 2 & 0 \\
+          0 & 0 & 0 & 2
+          \end{bmatrix}
+          \]
+        </p>
+        <p><strong>Step 3:</strong> Adjacency matrix \(A\):</p>
+        <p>
+          \[
+          A = \begin{bmatrix}
+          0 & 1 & 0 & 1 \\
+          1 & 0 & 1 & 0 \\
+          0 & 1 & 0 & 1 \\
+          1 & 0 & 1 & 0
+          \end{bmatrix}
+          \]
+        </p>
+        <p><strong>Step 4:</strong> Laplacian \(L = D - A\):</p>
+        <p>
+          \[
+          L = \begin{bmatrix}
+          2 & -1 & 0 & -1 \\
+          -1 & 2 & -1 & 0 \\
+          0 & -1 & 2 & -1 \\
+          -1 & 0 & -1 & 2
+          \end{bmatrix}
+          \]
+        </p>
+        <p><strong>Step 5:</strong> Normalize \(L\) to form a density matrix:</p>
+        <p>
+          \[
+          \rho = \frac{1}{\mathrm{Tr}(L)}L = \frac{1}{8}L
+          \]
+        </p>
+        <p><strong>Step 6:</strong> Compute entropy:</p>
+        <p>
+          \[
+          S(\rho) = -\mathrm{Tr}(\rho \log \rho) \approx 1.0397
+          \]
+        </p>
       </div>
+
+      <div style="flex: 1 1 400px; text-align: center; min-width: 280px;">
+        <svg width="200" height="200" viewBox="0 0 200 200">
+          <circle cx="100" cy="30" r="8" fill="black" />
+          <circle cx="170" cy="100" r="8" fill="black" />
+          <circle cx="100" cy="170" r="8" fill="black" />
+          <circle cx="30" cy="100" r="8" fill="black" />
+          <line x1="100" y1="30" x2="170" y2="100" stroke="black" stroke-width="2" />
+          <line x1="170" y1="100" x2="100" y2="170" stroke="black" stroke-width="2" />
+          <line x1="100" y1="170" x2="30" y2="100" stroke="black" stroke-width="2" />
+          <line x1="30" y1="100" x2="100" y2="30" stroke="black" stroke-width="2" />
+        </svg>
+      </div>
+
+    </div>
+  </details>
+</div>
 
       <div class="box">
         <h3>Key Takeaways</h3>
