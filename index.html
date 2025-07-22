@@ -53,7 +53,7 @@
     /* Center formulas */
     .formula {
       text-align: center;
-      font-family: Arial, sans-serif; /* keep consistent font */
+      font-family: Arial, sans-serif; /* consistent font */
       font-weight: bold;
       font-size: 1.1em;
       margin: 1em 0;
@@ -79,18 +79,12 @@
 
   <main>
     <section>
-      <h2>Welcome</h2>
-      <p>This site explores the intersection of spectral graph theory and quantum mechanics. Our goal is to understand how entropy can be modeled through graphs by calculating it directly and investigating how operations like rewiring and gluing affect it. We share theoretical concepts, visualizations, and daily notes from our research process.</p>
-    </section>
-
-    <section>
       <h2>Project Overview</h2>
-      <p>This summer research project focuses on computing different types of graph entropy and understanding their meaning in both mathematical and physical contexts. We investigate how the structure of graphs can reflect properties of quantum systems.</p>
+      <p>This research project explores the intersection of spectral graph theory and quantum mechanics. We focus on computing various types of graph entropy to understand their significance in both mathematical and physical contexts. Our goal is to model entropy through graphs by directly calculating it and examining how operations like rewiring and gluing affect its behavior. This site presents theoretical concepts, visualizations, and daily notes from our research process.</p>
     </section>
 
     <section class="notes">
       <h2>Daily Notes</h2>
-      <p><a href="https://www.overleaf.com/read/your-share-code-here" target="_blank" rel="noopener noreferrer">View Notes on Overleaf</a></p>
     </section>
 
     <section>
@@ -135,15 +129,17 @@
           <h3>What Is Von Neumann Entropy?</h3>
           <p>Von Neumann entropy measures how complex or disordered a graph is by analyzing its structure.</p>
 
-          <p><strong>How We Calculate It:</strong></p>
+          <p>How We Calculate It:</p>
           
-          <p><strong>Degree matrix (D):</strong> This matrix shows how many connections each vertex has. Each diagonal entry tells you the number of edges connected to that vertex.</p>
+          <p>Degree matrix (D): This matrix shows how many connections each vertex has. Each diagonal entry tells you the number of edges connected to that vertex.</p>
           
-          <p><strong>Adjacency matrix (A):</strong> This matrix shows which vertices are connected. If two vertices share an edge, the matrix entry is 1; if not, it’s 0.</p>
+          <p>Adjacency matrix (A): This matrix shows which vertices are connected. If two vertices share an edge, the matrix entry is 1; if not, it’s 0.</p>
+          
+          <p>The Laplacian matrix (∆): This matrix combines the above information by subtracting the adjacency matrix from the degree matrix, helping us analyze the structure and properties of the graph.</p>
           
           <p class="formula">∆ = D − A</p>
           
-          <p>This Laplacian matrix captures both the individual vertex connections and the overall graph structure. We then analyze the eigenvalues (λ) of the Laplacian to compute the von Neumann entropy using the formula:</p>
+          <p>We then analyze the eigenvalues (λ) of the Laplacian to compute the von Neumann entropy using the formula:</p>
           
           <p class="formula">S = − ∑ λ ln λ</p>
         </div>
@@ -166,4 +162,3 @@
   </footer>
 </body>
 </html>
-
