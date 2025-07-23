@@ -156,6 +156,19 @@
     .image-row img {
   max-width: 95%; 
 }
+    .enlarged {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  max-width: 90vw;
+  max-height: 90vh;
+  transform: translate(-50%, -50%) scale(1.5);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  cursor: zoom-out;
+  box-shadow: none; /* no glow */
+  border-radius: 8px;
+}
 
   .image-row {
   display: flex;
@@ -448,6 +461,31 @@
     </section>
   </main>
 
+  <script>
+  document.querySelectorAll('.image-row img').forEach(img => {
+    img.style.cursor = 'zoom-in'; 
+
+    img.addEventListener('click', () => {
+      if (img.classList.contains('enlarged')) {
+        img.classList.remove('enlarged');
+      } else {
+        document.querySelectorAll('.image-row img.enlarged').forEach(otherImg => {
+          otherImg.classList.remove('enlarged');
+        });
+        img.classList.add('enlarged');
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.image-row img.enlarged')) {
+      document.querySelectorAll('.image-row img.enlarged').forEach(img => {
+        img.classList.remove('enlarged');
+      });
+    }
+  });
+</script>
+  
   <footer>
     <p>Site built by Regan Williams.</p>
   </footer>
