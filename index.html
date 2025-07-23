@@ -391,7 +391,7 @@
   <h3>What Is Von Neumann Entropy?</h3>
   <p>Von Neumann entropy measures how complex or disordered a graph is by analyzing its structure. It is a measure of quantum information or uncertainty associated with a quantum state. </p>
        
-  <details>
+    <details style="margin-bottom: 1.5em;">
     <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">How We Calculate It</summary>
     <div style="margin-top: 1em; line-height: 1.6em;">
       <p>To compute the von Neumann entropy of a graph, we start by analyzing the eigenvalues (&#955;) of a special matrix called the Laplacian matrix (&Delta;). These eigenvalues capture important information about the graph’s structure.</p>
@@ -401,8 +401,8 @@
           <li><strong>Adjacency matrix (A):</strong> A matrix that shows which vertices are directly connected. If two vertices share an edge, the corresponding entry is 1; otherwise, it is 0.</li>
     </ul>
    <p>We form the Laplacian matrix by subtracting the adjacency matrix from the degree matrix:</p>
-    <p class="formula">&Delta; = \(Δ = D - A\)</p>
-    <p>Finally, the von Neumann entropy S is computed using the eigenvalues of the Laplacian as:</p>
+    <p class="formula"> = \(Δ = D - A\)</p>
+    <p>Finally, the von Neumann entropy \(S) is computed using the eigenvalues of the Laplacian as:</p>
     <p class="formula">\(S = \sum \lambda \log \lambda\)</p>
     </div>
   </details>
