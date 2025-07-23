@@ -123,9 +123,7 @@
 
     <div class="box">
     <h3>Entropy</h3>
-      <p>
-      We investigated the von Neumann entropy of graphs as a measure of structural complexity, based on the spectral properties of the Laplacian. This entropy encodes randomness, symmetry, and connectivity, and serves as a bridge between combinatorics, quantum information, and network theory. We analyzed how entropy behaves under gluing operations and disjoint unions, and how it reflects global structural features.
-      </p>
+      <p> We used von Neumann entropy to measure and compare the entropy of graphs and studied its behavior under gluing and disjoint union. </p>
     <details>
     <summary>See Key Results</summary>
     <ul>
@@ -172,18 +170,49 @@
         </details>
       </div>
 
-      <div class="box">
-        <h3>Network Theory</h3>
-        <p> We analyzed small-world structures, bottlenecks, and clustering behavior in graphs.</p>
-        <details>
-          <summary>See Key Results</summary>
-          <ul>
-            <li>Computed clustering coefficients and characteristic path lengths</li>
-            <li>Used the ω-index to classify and compare small-world networks</li>
-            <li>Related spectral quantities like the Fiedler value and Cheeger constant to connectivity and bottlenecks</li>
-          </ul>
-        </details>
-      </div>
+<div class="box">
+  <h3>Network Theory</h3>
+  <p>
+    We applied graph-theoretic and linear algebraic methods to analyze the structure of networks, focusing on small-world behavior, clustering, bottlenecks, and connectivity. 
+  </p>
+  <details>
+    <summary>See Key Results</summary>
+    <ul>
+      <li>
+        <strong>Characteristic Path Length:</strong> Computed the average shortest path length between all pairs of vertices:
+        \[
+        L(\Gamma) = \frac{1}{\binom{n}{2}} \sum_{v,w \in V} d(v, w)
+        \]
+        showing that longer paths correlate with lower entropy and slower information diffusion.
+      </li>
+      <li>
+        <strong>Clustering Coefficient:</strong> Measures how densely connected a vertex’s neighborhood is. Defined by:
+        \[
+        cc(v) = \frac{|E(\langle N[v] \rangle)|}{|E(K_{\deg(v)+1})|}, \quad cc(\Gamma) = \frac{1}{n} \sum_{v \in V} cc(v)
+        \]
+      </li>
+      <li>
+        <strong>ω-Index:</strong> Used the ω-index to classify small-world networks and position them along a spectrum between random-like and lattice-like structures:
+        \[
+        \omega = \frac{L_{\text{rand}}}{L} - \frac{C}{C_{\text{latt}}}
+        \]
+        where \( L \) is the characteristic path length and \( C \) is the clustering coefficient. Values near 0 indicate small-world behavior.
+      </li>
+      <li>
+        <strong>Fiedler Value and Cheeger Constant:</strong> Indicators of connectivity and bottlenecks:
+        <ul>
+          <li>
+            <em>Fiedler Value:</em> The second-smallest eigenvalue of the Laplacian, indicating algebraic connectivity. Low values signify weak connections.
+          </li>
+          <li>
+            <em>Cheeger Constant:</em> A numerical measure of whether or not a graph has a bottleneck.  A lower Cheeger constant implies a more bottlenecked graph, meaning you can disconnect it by removing a small number of edges or vertices. 
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Entropy Connection:</strong> Observed that high clustering and regular structure correlate with lower entropy, while shorter path lengths and randomness graphs exhibited higher entropy.
+  </details>
+</div>
 
       <div class="box">
         <h3>Future Directions</h3>
