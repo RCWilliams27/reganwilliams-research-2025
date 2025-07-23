@@ -121,20 +121,45 @@
         </details>
     </div>
 
-      <div class="box">
-        <h3>Entropy</h3>
-        <p>We used von Neumann entropy to measure and compare the entropy of graphs, studying its behavior under gluing and disjoint union.</p>
-        <details>
-          <summary>See Key Results</summary>
-          <ul>
-            <li>Calculated entropy for paths, cycles, stars, torus, and trees</li>
-            <li>Ranked graph families by entropy to reflect structural complexity</li>
-            <li>Explored entropy under gluing: bridge vs. interface</li>
-            <li>Demonstrated entropy additivity: \( S(\Gamma_1 \cup \Gamma_2) = S(\Gamma_1) + S(\Gamma_2) \)</li>
-            <li>Analyzed the entropy and eigenstructure of the 4-node torus</li>
-          </ul>
-        </details>
-      </div>
+    <div class="box">
+    <h3>Entropy</h3>
+      <p>
+      We investigated the von Neumann entropy of graphs as a measure of structural complexity, based on the spectral properties of the Laplacian. This entropy encodes randomness, symmetry, and connectivity, and serves as a bridge between combinatorics, quantum information, and network theory. We analyzed how entropy behaves under gluing operations and disjoint unions, and how it reflects global structural features.
+      </p>
+    <details>
+    <summary>See Key Results</summary>
+    <ul>
+      <li>
+        <strong>Von Neumann Entropy:</strong> Defined entropy as
+        \[
+        S(\Gamma) = \sum_{i} \lambda_i \ln \lambda_i,
+        \]
+        where \( \lambda_i \) are the nonzero eigenvalues of the Laplacian. 
+      </li>
+      <li>
+        <strong>Graph Family Comparisons:</strong> Computed and compared entropy for key graph types: path, tree, cycle, star, lattice, torus, complete bipartite, and complete graphs. We found that entropy increases with size and symmetry; that is, complete graphs have higher entropy than trees or paths.
+      </li>
+      <li>
+        <strong>Entropy Additivity:</strong> Verified that entropy is additive under disjoint unions:
+        \[
+        S(\Gamma_1 \cup \Gamma_2) = S(\Gamma_1) + S(\Gamma_2),
+        \]
+        and used this to compare composite and individual systems.
+      </li>
+      <li>
+        <strong>Gluing and Entropy:</strong> Explored entropy behavior under gluing via two methods:
+        <ul>
+          <li><em>Bridge Gluing:</em> Connecting two graphs by adding an edge between selected vertices</li>
+          <li><em>Interface Gluing:</em> Identifying a shared subgraph between two graphs</li>
+        </ul>
+        In both cases, we studied how entropy is no longer purely additive and instead reflects the new structure.
+      </li>
+      <li>
+        <strong>Glued Torus Analysis:</strong> Analyzed the entropy and spectrum of the torus graph under gluing. (ADD MORE HERE)
+      </li>
+    </ul>
+  </details>
+</div>
 
       <div class="box">
         <h3>Spectral Graph Theory</h3>
