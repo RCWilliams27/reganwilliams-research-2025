@@ -463,17 +463,36 @@
   </main>
 
   <script>
-  document.querySelectorAll('.image-row img').forEach(img => {
-    img.style.cursor = 'zoom-in'; 
+  const images = document.querySelectorAll('.image-row img');
+
+  images.forEach(img => {
+    img.style.cursor = 'zoom-in';
 
     img.addEventListener('click', () => {
       if (img.classList.contains('enlarged')) {
         img.classList.remove('enlarged');
+        img.style.position = '';
+        img.style.left = '';
+        img.style.top = '';
+        img.style.transform = '';
       } else {
         document.querySelectorAll('.image-row img.enlarged').forEach(otherImg => {
           otherImg.classList.remove('enlarged');
+          otherImg.style.position = '';
+          otherImg.style.left = '';
+          otherImg.style.top = '';
+          otherImg.style.transform = '';
         });
+
+        const rect = img.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
         img.classList.add('enlarged');
+        img.style.position = 'fixed';
+        img.style.left = centerX + 'px';
+        img.style.top = centerY + 'px';
+        img.style.transform = 'translate(-50%, -50%) scale(2)'; // scale factor adjustable
       }
     });
   });
@@ -482,11 +501,27 @@
     if (!e.target.closest('.image-row img.enlarged')) {
       document.querySelectorAll('.image-row img.enlarged').forEach(img => {
         img.classList.remove('enlarged');
+        img.style.position = '';
+        img.style.left = '';
+        img.style.top = '';
+        img.style.transform = '';
+      });
+    }
+  });
+
+    document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.image-row img.enlarged').forEach(img => {
+        img.classList.remove('enlarged');
+        img.style.position = '';
+        img.style.left = '';
+        img.style.top = '';
+        img.style.transform = '';
       });
     }
   });
 </script>
-  
+
   <footer>
     <p>Site built by Regan Williams.</p>
   </footer>
