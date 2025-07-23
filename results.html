@@ -111,7 +111,7 @@
               </li>
               <li>
                  <strong>Even and Odd Laplacians:</strong> Constructed the even Laplacian \( \Delta_+ = II^\top \) and odd Laplacian \( \Delta_- = I^\top I \) using the incidence matrix \( I \). Showed that:
-                  \[\dim(\ker(\Delta_+)) = b_0, \quad \dim(\ker(\Delta_-)) = b_1\] revealing how the Laplacian spectrum encodes topology.
+                  \[\dim(\ker(\Delta_+)) = b_0, \quad \dim(\ker(\Delta_-)) = b_1\] revealing how the spectrum of the Laplacian encodes topology.
               </li>
                <li>
                 <strong>Morse Inequalities and Discrete Morse Theory:</strong> Used critical point counts from Morse functions on graphs to verify:
@@ -185,12 +185,25 @@
         \]
         showing that longer paths correlate with lower entropy and slower information diffusion.
       </li>
-      <li>
-        <strong>Clustering Coefficient:</strong> Measures how densely connected a vertex’s neighborhood is. Defined by:
-        \[
-        cc(v) = \frac{|E(\langle N[v] \rangle)|}{|E(K_{\deg(v)+1})|}, \quad cc(\Gamma) = \frac{1}{n} \sum_{v \in V} cc(v)
-        \]
-      </li>
+    <li>
+  <strong>Clustering Coefficient:</strong> Measures how densely connected a vertex’s neighborhood is.
+
+  <ul>
+    <li>
+      <strong> clustering coefficient</strong> of a vertex \( v \) is defined as:
+      \[
+      cc(v) = \frac{|E(\langle N[v] \rangle)|}{|E(K_{\deg(v)+1})|}
+      \]
+      where \( N[v] \) is the closed neighborhood of \( v \), and the denominator is the number of edges in the complete graph on \( \deg(v) + 1 \) vertices.
+    </li>
+    <li>
+      <strong>Average clustering coefficient</strong> of the graph \( \Gamma \) is the average of all clustering coefficients:
+      \[
+      cc(\Gamma) = \frac{1}{n} \sum_{v \in V} cc(v)
+      \]
+    </li>
+  </ul>
+</li>
       <li>
         <strong>ω-Index:</strong> Used the ω-index to classify small-world networks and position them along a spectrum between random-like and lattice-like structures:
         \[
