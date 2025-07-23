@@ -1,109 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Results | Spectral Graph Theory & Quantum Mechanics</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f8f9fa;
-    }
-    header {
-      background-color: #343a40;
-      color: white;
-      padding: 1em;
-      text-align: center;
-    }
-    nav {
-      background-color: #495057;
-      display: flex;
-      justify-content: center;
-      padding: 0.5em 0;
-    }
-    nav a {
-      color: white;
-      margin: 0 1em;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 2em;
-    }
-    section {
-      margin-bottom: 2em;
-    }
-    .box {
-      background-color: white;
-      border: 1px solid #dee2e6;
-      padding: 1.5em;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    h2, h3 {
-      color: #333;
-      margin-top: 0;
-    }
-    footer {
-      background-color: #343a40;
-      color: white;
-      text-align: center;
-      padding: 1em 0;
-      margin-top: 2em;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Spectral Graph Theory and Quantum Mechanics</h1>
-  </header>
+<section>
+  <h2>Project Results</h2>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="visualizations.html">Visualizations</a>
-    <a href="results.html">Results</a>
-    <a href="meet.html">Meet Us</a>
-  </nav>
+  <div class="box">
+    <h3>Topological Structure</h3>
+    <p>Explored how graphs encode shape and structure through algebraic tools like the Euler characteristic and Laplacians.</p>
+    <details>
+      <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">See Key Results</summary>
+      <ul style="margin-top: 1em; line-height: 1.6em; padding-left: 1.2em;">
+        <li>Computed Euler characteristic: \( \chi = |V| - |E| \)</li>
+        <li>Related Laplacian kernels to Betti numbers: \( b_0, b_1 \)</li>
+        <li>Verified discrete Morse inequalities: \( C_0 - C_1 = b_0 - b_1 = \chi \)</li>
+      </ul>
+    </details>
+  </div>
 
-  <main>
-    <section>
-      <h2>Project Results</h2>
+  <div class="box">
+    <h3>Entropy</h3>
+    <p>Used von Neumann entropy to measure entropy across graph families and studied its behavior under gluing and disjoint union.</p>
+    <details>
+      <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">See Key Results</summary>
+      <ul style="margin-top: 1em; line-height: 1.6em; padding-left: 1.2em;">
+        <li>Computed entropy for paths, cycles, torus, stars, and more</li>
+        <li>Ranked graphs by entropy to reflect symmetry and connectivity</li>
+        <li>Studied gluing operations and their impact on entropy</li>
+        <li>Proved entropy additivity: \( S(\Gamma_1 \cup \Gamma_2) = S(\Gamma_1) + S(\Gamma_2) \)</li>
+      </ul>
+    </details>
+  </div>
 
-      <div class="box">
-        <h3>Topological Structure</h3>
-        <p></p>
-      </div>
+  <div class="box">
+    <h3>Spectral Graph Theory</h3>
+    <p>??.</p>
+    <details>
+      <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">See Key Results</summary>
+      <ul style="margin-top: 1em; line-height: 1.6em; padding-left: 1.2em;">
+        <li>??</li>
+      </ul>
+    </details>
+  </div>
 
-      <div class="box">
-        <h3>Entropy</h3>
-        <p></p>
-      </div>
-
-      <div class="box">
-        <h3>Spectral Graph Theory</h3>
-        <p></p>
-      </div>
-
-      <div class="box">
-        <h3>Network Theory</h3>
-        <p></p>
-      </div>
-
-      <div class="box">
-        <h3>Future Directions</h3>
-        <p></p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>Site built by Regan Williams.</p>
-  </footer>
-</body>
-</html>
+  <div class="box">
+    <h3>Network Theory</h3>
+    <p>Analyzed small-world behavior, bottlenecks, and clustering in complex networks.</p>
+    <details>
+      <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">See Key Results</summary>
+      <ul style="margin-top: 1em; line-height: 1.6em; padding-left: 1.2em;">
+        <li>Calculated clustering coefficients and path lengths</li>
+        <li>Used the ω-index to classify small-world properties</li>
+        <li>Related Fiedler values and Cheeger constants to connectivity</li>
+      </ul>
+    </details>
+  </div>
+</section>
