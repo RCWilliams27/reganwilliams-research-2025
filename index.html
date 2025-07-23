@@ -387,76 +387,84 @@
 
       <h2>Von Neumann Entropy</h2>
 
-      <div class="box">
-        <h3>What Is Von Neumann Entropy?</h3>
-        <p>Von Neumann entropy measures how complex or disordered a graph is by analyzing its structure.</p>
-        <p><strong>How We Calculate It:</strong></p>
-        <p><strong>Degree matrix (D):</strong> Shows how many connections each vertex has. Each diagonal entry gives the number of edges connected to that vertex.</p>
-        <p><strong>Adjacency matrix (A):</strong> Shows which vertices are directly connected. If two vertices share an edge, the matrix entry is 1; otherwise, it's 0.</p>
-        <p><strong>Laplacian matrix (∆):</strong> Formed by subtracting the adjacency matrix from the degree matrix. This matrix captures how the graph is structured overall.</p>
-        <p class="formula">∆ = D − A</p>
-        <p>We then analyze the eigenvalues (λ) of the Laplacian to compute von Neumann entropy using:</p>
-        <p class="formula">S = ∑ λ log λ</p>
-      </div>
+     <div class="box">
+  <h3>What Is Von Neumann Entropy?</h3>
+  <p>Von Neumann entropy measures how complex or disordered a graph is by analyzing its structure. It is a measure of quantum information or uncertainty associated with a quantum state. </p>
+       
+  <details>
+    <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">How We Calculate It</summary>
+    <div style="margin-top: 1em; line-height: 1.6em;">
+      <p><strong>Degree matrix (D):</strong> Shows how many connections each vertex has. Each diagonal entry gives the number of edges connected to that vertex.</p>
+      <p><strong>Adjacency matrix (A):</strong> Shows which vertices are directly connected. If two vertices share an edge, the matrix entry is 1; otherwise, it's 0.</p>
+      <p><strong>Laplacian matrix (Δ):</strong> Formed by subtracting the adjacency matrix from the degree matrix. This matrix captures how the graph is structured overall.</p>
+      <p class="formula">Δ = D − A</p>
+      <p>We then analyze the eigenvalues (λ) of the Laplacian to compute von Neumann entropy using:</p>
+      <p class="formula">S = ∑ λ log λ</p>
+    </div>
+  </details>
 
-      <div class="box">
-        <details>
-          <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">Example: Von Neumann Entropy of the Cycle Graph C₄</summary>
-          <div style="margin-top: 1em; line-height: 1.6em;">
-            <p><strong>Step 1:</strong> Label vertices \(v_1\) through \(v_4\), connected in a cycle.</p>
-            <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <line x1="50" y1="50" x2="150" y2="50" class="edge"/>
-              <line x1="150" y1="50" x2="150" y2="150" class="edge"/>
-              <line x1="150" y1="150" x2="50" y2="150" class="edge"/>
-              <line x1="50" y1="150" x2="50" y2="50" class="edge"/>
-              <circle cx="50" cy="50" r="6" class="node"/>
-              <circle cx="150" cy="50" r="6" class="node"/>
-              <circle cx="150" cy="150" r="6" class="node"/>
-              <circle cx="50" cy="150" r="6" class="node"/>
-              <text x="50" y="40" class="label">\(v_1\)</text>
-              <text x="150" y="40" class="label">\(v_2\)</text>
-              <text x="150" y="170" class="label">\(v_3\)</text>
-              <text x="50" y="170" class="label">\(v_4\)</text>
-            </svg>
-            <p><strong>Step 2:</strong> Degree matrix \(D\):<br>
-              \[
-              D = \begin{bmatrix}
-              2 & 0 & 0 & 0 \\
-              0 & 2 & 0 & 0 \\
-              0 & 0 & 2 & 0 \\
-              0 & 0 & 0 & 2
-              \end{bmatrix}
-              \]
-            </p>
-            <p><strong>Step 3:</strong> Adjacency matrix \(A\):<br>
-              \[
-              A = \begin{bmatrix}
-              0 & 1 & 0 & 1 \\
-              1 & 0 & 1 & 0 \\
-              0 & 1 & 0 & 1 \\
-              1 & 0 & 1 & 0
-              \end{bmatrix}
-              \]
-            </p>
-            <p><strong>Step 4:</strong> Laplacian \(\Delta = D - A\):<br>
-              \[
-              \Delta = \begin{bmatrix}
-              2 & -1 & 0 & -1 \\
-              -1 & 2 & -1 & 0 \\
-              0 & -1 & 2 & -1 \\
-              -1 & 0 & -1 & 2
-              \end{bmatrix}
-              \]
-            </p>
-            <p><strong>Step 5:</strong> Eigenvalues: \( \{0, 2, 4, 2\} \)</p>
-            <p><strong>Step 6:</strong> Compute \(S = \sum \lambda \log \lambda\), excluding \(0\):<br>
-              \[
-              S = 2 \log 2 + 2 \log 2 + 4 \log 4 \approx 8.3178
-              \]
-            </p>
-          </div>
-        </details>
-      </div>
+  <details>
+    <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">Example: Von Neumann Entropy of the Cycle Graph C₄</summary>
+    <div style="margin-top: 1em; line-height: 1.6em;">
+      <p><strong>Step 1:</strong> Label vertices \(v_1\) through \(v_4\), connected in a cycle.</p>
+      <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <line x1="50" y1="50" x2="150" y2="50" class="edge"/>
+        <line x1="150" y1="50" x2="150" y2="150" class="edge"/>
+        <line x1="150" y1="150" x2="50" y2="150" class="edge"/>
+        <line x1="50" y1="150" x2="50" y2="50" class="edge"/>
+        <circle cx="50" cy="50" r="6" class="node"/>
+        <circle cx="150" cy="50" r="6" class="node"/>
+        <circle cx="150" cy="150" r="6" class="node"/>
+        <circle cx="50" cy="150" r="6" class="node"/>
+        <text x="50" y="40" class="label">\(v_1\)</text>
+        <text x="150" y="40" class="label">\(v_2\)</text>
+        <text x="150" y="170" class="label">\(v_3\)</text>
+        <text x="50" y="170" class="label">\(v_4\)</text>
+      </svg>
+
+      <p><strong>Step 2:</strong> Degree matrix \(D\):<br>
+        \[
+        D = \begin{bmatrix}
+        2 & 0 & 0 & 0 \\
+        0 & 2 & 0 & 0 \\
+        0 & 0 & 2 & 0 \\
+        0 & 0 & 0 & 2
+        \end{bmatrix}
+        \]
+      </p>
+
+      <p><strong>Step 3:</strong> Adjacency matrix \(A\):<br>
+        \[
+        A = \begin{bmatrix}
+        0 & 1 & 0 & 1 \\
+        1 & 0 & 1 & 0 \\
+        0 & 1 & 0 & 1 \\
+        1 & 0 & 1 & 0
+        \end{bmatrix}
+        \]
+      </p>
+
+      <p><strong>Step 4:</strong> Laplacian \(Δ = D - A\):<br>
+        \[
+        Δ = \begin{bmatrix}
+        2 & -1 & 0 & -1 \\
+        -1 & 2 & -1 & 0 \\
+        0 & -1 & 2 & -1 \\
+        -1 & 0 & -1 & 2
+        \end{bmatrix}
+        \]
+      </p>
+
+      <p><strong>Step 5:</strong> Eigenvalues: \( \{0, 2, 4, 2\} \)</p>
+
+      <p><strong>Step 6:</strong> Compute \(S = \sum \lambda \log \lambda\), excluding \(0\):<br>
+        \[
+        S = 2 \log 2 + 2 \log 2 + 4 \log 4 \approx 8.3178
+        \]
+      </p>
+    </div>
+  </details>
+</div>
 
       <div class="box">
         <h3>Key Takeaways</h3>
