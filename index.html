@@ -236,9 +236,51 @@
           <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">Types of Graphs</summary>
           <ul style="margin-top: 1em; line-height: 1.6em; padding-left: 1.2em;">
             <li><strong>Path Graph:</strong> Vertices arranged in a line where each is connected to its immediate neighbors.</li>
+            <svg width="200" height="80" viewBox="0 0 200 80">
+            <line x1="20" y1="40" x2="70" y2="40" stroke="black"/>
+            <line x1="70" y1="40" x2="120" y2="40" stroke="black"/>
+            <line x1="120" y1="40" x2="170" y2="40" stroke="black"/>
+            <circle cx="20" cy="40" r="6" fill="#007acc"/>
+            <circle cx="70" cy="40" r="6" fill="#007acc"/>
+            <circle cx="120" cy="40" r="6" fill="#007acc"/>
+            <circle cx="170" cy="40" r="6" fill="#007acc"/>
+            </svg>
             <li><strong>Tree Graph:</strong> A connected graph with a unique path between any two vertices and no cylces.</li>
+            <svg width="200" height="100" viewBox="0 0 200 100">
+            <line x1="100" y1="20" x2="50" y2="60" stroke="black"/>
+            <line x1="100" y1="20" x2="150" y2="60" stroke="black"/>
+            <line x1="50" y1="60" x2="30" y2="90" stroke="black"/>
+            <line x1="50" y1="60" x2="70" y2="90" stroke="black"/>
+            <circle cx="100" cy="20" r="6" fill="#007acc"/>
+            <circle cx="50" cy="60" r="6" fill="#007acc"/>
+            <circle cx="150" cy="60" r="6" fill="#007acc"/>
+            <circle cx="30" cy="90" r="6" fill="#007acc"/>
+            <circle cx="70" cy="90" r="6" fill="#007acc"/>
+            </svg>
             <li><strong>Cycle Graph:</strong> Vertices connected in a closed loop where each vertex has degree two.</li>
+            <svg width="200" height="200" viewBox="0 0 200 200">
+            <line x1="50" y1="50" x2="150" y2="50" stroke="black"/>
+            <line x1="150" y1="50" x2="150" y2="150" stroke="black"/>
+            <line x1="150" y1="150" x2="50" y2="150" stroke="black"/>
+            <line x1="50" y1="150" x2="50" y2="50" stroke="black"/>
+            <circle cx="50" cy="50" r="6" fill="#007acc"/>
+            <circle cx="150" cy="50" r="6" fill="#007acc"/>
+            <circle cx="150" cy="150" r="6" fill="#007acc"/>
+            <circle cx="50" cy="150" r="6" fill="#007acc"/>
+            </svg>
             <li><strong>Star Graph:</strong> A central vertex connected to all others, which are otherwise unconnected.</li>
+            <svg width="200" height="200" viewBox="0 0 200 200">
+            <line x1="100" y1="100" x2="50" y2="50" stroke="black"/>
+            <line x1="100" y1="100" x2="150" y2="50" stroke="black"/>
+            <line x1="100" y1="100" x2="50" y2="150" stroke="black"/>
+            <line x1="100" y1="100" x2="150" y2="150" stroke="black"/>
+            <circle cx="100" cy="100" r="6" fill="#007acc"/>
+            <circle cx="50" cy="50" r="6" fill="#007acc"/>
+            <circle cx="150" cy="50" r="6" fill="#007acc"/>
+            <circle cx="50" cy="150" r="6" fill="#007acc"/>
+            <circle cx="150" cy="150" r="6" fill="#007acc"/>
+            </svg>
+
             <li><strong>Lattice:</strong> A grid-like graph where vertices form a square, repeating arrangement.</li>
             <li><strong>Torus:</strong> A lattice graph with edges wrapped around to form a donut-shaped topology. </li>
             <li><strong>Complete Bipartite Graph:</strong> Vertices split into two sets with edges connecting every vertex in one set to every vertex in the other. </li>
