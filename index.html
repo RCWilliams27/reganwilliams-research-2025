@@ -394,12 +394,16 @@
   <details>
     <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">How We Calculate It</summary>
     <div style="margin-top: 1em; line-height: 1.6em;">
-      <p><strong>Degree matrix (D):</strong> Shows how many connections each vertex has. Each diagonal entry gives the number of edges connected to that vertex.</p>
-      <p><strong>Adjacency matrix (A):</strong> Shows which vertices are directly connected. If two vertices share an edge, the matrix entry is 1; otherwise, it's 0.</p>
-      <p><strong>Laplacian matrix (Δ):</strong> Formed by subtracting the adjacency matrix from the degree matrix. This matrix captures how the graph is structured overall.</p>
-      <p class="formula">Δ = D − A</p>
-      <p>We then analyze the eigenvalues (λ) of the Laplacian to compute von Neumann entropy using:</p>
-      <p class="formula">S = ∑ λ log λ</p>
+      <p>To compute the von Neumann entropy of a graph, we start by analyzing the eigenvalues (&#955;) of a special matrix called the Laplacian matrix (&Delta;). These eigenvalues capture important information about the graph’s structure.</p>
+      <p>The Laplacian matrix itself is calculated by combining two other matrices:</p>
+      <ul>
+          <li><strong>Degree matrix (D):</strong> A diagonal matrix where each entry shows how many connections (edges) a vertex has.</li>
+          <li><strong>Adjacency matrix (A):</strong> A matrix that shows which vertices are directly connected. If two vertices share an edge, the corresponding entry is 1; otherwise, it is 0.</li>
+    </ul>
+   <p>We form the Laplacian matrix by subtracting the adjacency matrix from the degree matrix:</p>
+    <p class="formula">&Delta; = D − A</p>
+    <p>Finally, the von Neumann entropy <strong>S</strong> is computed using the eigenvalues of the Laplacian as:</p>
+    <p class="formula">S = &sum; &#955; log &#955;</p>
     </div>
   </details>
 
