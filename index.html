@@ -280,11 +280,54 @@
             <circle cx="50" cy="150" r="6" fill="#007acc"/>
             <circle cx="150" cy="150" r="6" fill="#007acc"/>
             </svg>
-
             <li><strong>Lattice:</strong> A grid-like graph where vertices form a square, repeating arrangement.</li>
+            <svg width="200" height="200" viewBox="0 0 200 200">
+            <line x1="50" y1="50" x2="150" y2="50" class="edge"/>
+            <line x1="50" y1="150" x2="150" y2="150" class="edge"/>
+            <line x1="50" y1="50" x2="50" y2="150" class="edge"/>
+            <line x1="150" y1="50" x2="150" y2="150" class="edge"/>
+            <circle cx="50" cy="50" r="6" class="node"/>
+            <circle cx="150" cy="50" r="6" class="node"/>
+            <circle cx="50" cy="150" r="6" class="node"/>
+            <circle cx="150" cy="150" r="6" class="node"/>
+            </svg>
             <li><strong>Torus:</strong> A lattice graph with edges wrapped around to form a donut-shaped topology. </li>
+            <svg width="200" height="200" viewBox="0 0 200 200">
+            <line x1="50" y1="50" x2="150" y2="50" class="edge"/>
+            <line x1="50" y1="150" x2="150" y2="150" class="edge"/>
+            <line x1="50" y1="50" x2="50" y2="150" class="edge"/>
+            <line x1="150" y1="50" x2="150" y2="150" class="edge"/>
+            <line x1="50" y1="50" x2="50" y2="150" class="edge" stroke-dasharray="4 2"/>
+            <line x1="150" y1="50" x2="150" y2="150" class="edge" stroke-dasharray="4 2"/>
+            <circle cx="50" cy="50" r="6" class="node"/>
+            <circle cx="150" cy="50" r="6" class="node"/>
+            <circle cx="50" cy="150" r="6" class="node"/>
+            <circle cx="150" cy="150" r="6" class="node"/>
+            </svg>
             <li><strong>Complete Bipartite Graph:</strong> Vertices split into two sets with edges connecting every vertex in one set to every vertex in the other. </li>
+            <svg width="200" height="150" viewBox="0 0 200 150">
+            <circle cx="50" cy="50" r="6" class="node"/>
+            <circle cx="50" cy="100" r="6" class="node"/>
+            <circle cx="150" cy="50" r="6" class="node"/>
+            <circle cx="150" cy="100" r="6" class="node"/>
+            <line x1="50" y1="50" x2="150" y2="50" class="edge"/>
+            <line x1="50" y1="50" x2="150" y2="100" class="edge"/>
+            <line x1="50" y1="100" x2="150" y2="50" class="edge"/>
+            <line x1="50" y1="100" x2="150" y2="100" class="edge"/>
+            </svg>
             <li><strong>Complete Graph:</strong> Every pair of vertices is connected by an edge.</li>
+            <svg width="200" height="200" viewBox="0 0 200 200">
+            <line x1="50" y1="50" x2="150" y2="50" class="edge"/>
+            <line x1="50" y1="50" x2="50" y2="150" class="edge"/>
+            <line x1="50" y1="50" x2="150" y2="150" class="edge"/>
+            <line x1="150" y1="50" x2="50" y2="150" class="edge"/>
+            <line x1="150" y1="50" x2="150" y2="150" class="edge"/>
+            <line x1="50" y1="150" x2="150" y2="150" class="edge"/>
+            <circle cx="50" cy="50" r="6" class="node"/>
+            <circle cx="150" cy="50" r="6" class="node"/>
+            <circle cx="50" cy="150" r="6" class="node"/>
+            <circle cx="150" cy="150" r="6" class="node"/>
+            </svg>
             <a href="pdfs/Types-of-Graphs-Notes.pdf" target="_blank">Types of Graphs Research Notes</a>
           </ul>
         </details>
