@@ -94,7 +94,7 @@
 <section style="background: #ffffff; border-radius: 8px; padding: 1.5em; margin-bottom: 2em; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   <h2>Introduction</h2>
   <p>
-    This page explores the behavior of von Neumann entropy and the Euler characteristic for different families of graphs as the number of vertices (<em>n</em>) increases.  
+    This page explores the behavior of Von Neumann entropy and the Euler characteristic for different families of graphs as the number of vertices (<em>n</em>) increases.  
     Studying how entropy and the Euler characteristic change with graph size helps visualize our research by revealing patterns and structural differences between graph types.
   </p>
   <p>
@@ -108,7 +108,7 @@
     <div id="laplacianPlot" style="height:500px;"></div>
     <details>
       <summary>Explanation</summary>
-      <p>This graph compares the von Neumann entropy of various graph families using the eigenvalues of their Laplacian matrices. The complete graph exhibits the highest entropy, reflecting its high symmetry and connectivity. In contrast, the path, tree, and cycle graphs all display much lower and closely clustered entropy values, indicating simpler, more regular structures with fewer connections.</p>
+      <p>This graph compares the Von Neumann entropy of various graph families using the eigenvalues of their Laplacian matrices. The complete graph exhibits the highest entropy, reflecting its high symmetry and connectivity. In contrast, the path, tree, and cycle graphs all display much lower and closely clustered entropy values, indicating simpler, more regular structures with fewer connections.</p>
     </details>
   </section>
 
@@ -117,7 +117,7 @@
     <div id="adjacencyPlot" style="height:500px;"></div>
     <details>
       <summary>Explanation</summary>
-      <p>This graph is very similar to the previous one, comparing the von Neumann entropy across different graph families, but this time using the eigenvalues of the adjacency matrix instead of the Laplacian. While the overall trends remain similar, the entropy values are generally lower. As a result, the complete graph no longer shows the same rapid, exponential increase, highlighting how the choice of matrix affects the eigenvalues and thus the entropy scale and interpretation.</p>
+      <p>This graph is very similar to the previous one, comparing the Von Neumann entropy across different graph families, but this time using the eigenvalues of the adjacency matrix instead of the Laplacian. While the overall trends remain similar, the entropy values are generally lower. As a result, the complete graph no longer shows the same rapid, exponential increase, highlighting how the choice of matrix affects the eigenvalues and thus the entropy scale and interpretation.</p>
     </details>
   </section>
 
@@ -126,14 +126,14 @@
     <div id="ratioPlot" style="height:500px;"></div>
     <details>
       <summary>Explanation</summary>
-      <p>This graph displays the ratio of entropy values computed from the Laplacian and adjacency matrices, showing how the two measures compare across graph types.</p>
-        <ul style="list-style-type: disc; padding-left: 20px; line-height: 1.8;">
-          <li>Complete and complete bipartite graphs show a steady upward slope in the entropy ratio, reflecting a smooth and predictable difference as the graphs grow.</li>
-          <li>Path, tree, cycle, star, and lattice graphs have more irregular structures, causing their entropy ratios to fluctuate up and down with changes in size.</li>
-          <li>This indicates that for highly symmetric graphs like complete and complete bipartite, the Laplacian and adjacency entropy difference scales smoothly.</li>
-          <li>But in less symmetric graphs (paths, trees, cycles, stars, lattices), small size changes cause fluctuations in eigenvalues and entropy ratios.</li>
-      </ul>   
-    </details>
+       <p>This graph displays the ratio of entropy values computed from the Laplacian and adjacency matrices, showing how the two measures compare across graph types.</p>
+       <ul style="list-style-type: disc; padding-left: 20px; line-height: 1.8;">
+          <li><strong>Complete and complete bipartite graphs</strong> show a steady upward slope in the entropy ratio, reflecting a smooth and predictable difference as the graphs grow.</li>
+          <li><strong>Path, tree, and star graphs</strong> have more irregular structures, causing their entropy ratios to fluctuate significantly with changes in size.</li>
+          <li><strong>Cycle and lattice graphs</strong>, while symmetric, can still show moderate fluctuations, especially at small sizes, due to their lower connectivity compared to complete graphs.</li>
+          <li>This suggests that <strong>higher connectivity and stronger symmetry</strong> (like in complete graphs) lead to smoother entropy ratios, while <strong>sparser or less uniformly connected structures</strong> are more sensitive to size changes.</li>
+      </ul>
+  </details>
   </section>
 
   <section class="plot-container">
