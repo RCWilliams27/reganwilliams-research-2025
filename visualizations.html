@@ -4,18 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Graph Entropy Visualizations</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
       margin: 0;
       padding: 0;
-      background-color: #f8f9fa;
     }
-    header {
+    header, footer {
       background-color: #343a40;
       color: white;
-      padding: 1em;
       text-align: center;
+      padding: 1em 0;
     }
     nav {
       background-color: #495057;
@@ -33,67 +34,134 @@
       text-decoration: underline;
     }
     main {
-      padding: 2em;
       max-width: 1000px;
       margin: auto;
+      padding: 2em;
     }
-    .intro, .notes {
-      margin-bottom: 2em;
-    }
-    .graphs {
-      margin-bottom: 2em;
-    }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1em;
-      justify-content: center;
-    }
-    .gallery img {
-      max-width: 300px;
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-    footer {
-      background-color: #343a40;
-      color: white;
-      text-align: center;
-      padding: 1em 0;
-      margin-top: 2em;
+    .plot-container {
+      margin-bottom: 4em;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Spectral Graph Theory and Quantum Mechanics</h1>
-  </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="visualizations.html">Visualizations</a>
-    <a href="results.html">Results</a>
-    <a href="meet.html">Meet Us</a>
-  </nav>
+<header>
+  <h1>Spectral Graph Theory and Quantum Mechanics</h1>
+</header>
 
-  <main>
-    <section class="intro">
-      <p>[Write-up coming soon...]</p>
-    </section>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="visualizations.html">Visualizations</a>
+  <a href="results.html">Results</a>
+  <a href="meet.html">Meet Us</a>
+</nav>
 
-    <section class="graphs">
-      <h2>Graph Entropy Visualizations</h2>
-      <div class="gallery">
-        <img src="images/laplacian_entropy.png" alt="Laplacian Entropy">
-        <img src="images/laplacian_entropy_log.png" alt="Laplacian Entropy (Log)">
-        <img src="images/adjacency_entropy.png" alt="Adjacency Entropy">
-        <img src="images/entropy_ratio.png" alt="Entropy Ratio">
-        <img src="images/euler_characteristic.png" alt="Euler Characteristic">
-      </div>
-    </section>
+<main>
+  <section class="plot-container">
+    <h2>Laplacian Entropy</h2>
+    <div id="laplacianPlot" style="height:500px;"></div>
+  </section>
 
- 
+  <section class="plot-container">
+    <h2>Adjacency Entropy</h2>
+    <div id="adjacencyPlot" style="height:500px;"></div>
+  </section>
+
+  <section class="plot-container">
+    <h2>Entropy Ratio (Laplacian / Adjacency)</h2>
+    <div id="ratioPlot" style="height:500px;"></div>
+  </section>
+
+  <section class="plot-container">
+    <h2>Euler Characteristic</h2>
+    <div id="eulerPlot" style="height:500px;"></div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Graph Entropy Project</p>
+</footer>
+
+<script>
+  fetch('VisualizationData/entropy_data.csv')
+    .then(response => response.text())
+    .then(data => {
+      const rows = data.trim().split('\n').map(row => row.split(','));
+      const header = rows.shift(); // ['n', 'graphType', 'laplacian', 'adjacency', 'ratio', 'euler']
+
+      const categories = ['laplacian', 'adjacency', 'ratio', 'euler'];
+      const plots = {};
+      const graphTypes = new Set();
+
+      // Initialize plot structures
+      for (const cat of categories) {
+        plots[cat] = {};
+      }
+
+      for (const row of rows) {
+        const [nStr, type, lapStr, adjStr, ratioStr, eulerStr] = row;
+        const n = parseInt(nStr);
+        const lap = parseFloat(lapStr);
+        const adj = parseFloat(adjStr);
+        const ratio = parseFloat(ratioStr);
+        const euler = parseFloat(eulerStr);
+
+        graphTypes.add(type);
+
+        if (!plots.laplacian[type]) {
+          for (const cat of categories) {
+            plots[cat][type] = { x: [], y: [] };
+          }
+        }
+
+        plots.laplacian[type].x.push(n);
+        plots.laplacian[type].y.push(lap);
+        plots.adjacency[type].x.push(n);
+        plots.adjacency[type].y.push(adj);
+        plots.ratio[type].x.push(n);
+        plots.ratio[type].y.push(ratio);
+        plots.euler[type].x.push(n);
+        plots.euler[type].y.push(euler);
+      }
+
+      function makeTraces(category) {
+        return Array.from(graphTypes).map(type => ({
+          x: plots[category][type].x,
+          y: plots[category][type].y,
+          mode: 'lines+markers',
+          type: 'scatter',
+          name: type,
+          hovertemplate: `n=%{x}<br>${category}=%{y:.4f}<extra>${type}</extra>`
+        }));
+      }
+
+      Plotly.newPlot('laplacianPlot', makeTraces('laplacian'), {
+        title: 'Laplacian Entropy',
+        xaxis: { title: 'n (number of vertices)' },
+        yaxis: { title: 'Entropy' }
+      });
+
+      Plotly.newPlot('adjacencyPlot', makeTraces('adjacency'), {
+        title: 'Adjacency Entropy',
+        xaxis: { title: 'n (number of vertices)' },
+        yaxis: { title: 'Entropy' }
+      });
+
+      Plotly.newPlot('ratioPlot', makeTraces('ratio'), {
+        title: 'Entropy Ratio (Laplacian / Adjacency)',
+        xaxis: { title: 'n (number of vertices)' },
+        yaxis: { title: 'Ratio' }
+      });
+
+      Plotly.newPlot('eulerPlot', makeTraces('euler'), {
+        title: 'Euler Characteristic (χ = V - E)',
+        xaxis: { title: 'n (number of vertices)' },
+        yaxis: { title: 'χ' }
+      });
+    });
+</script>
+
 </body>
 </html>
+
 
