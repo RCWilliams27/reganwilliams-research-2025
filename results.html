@@ -166,22 +166,23 @@
     <summary>See Key Results</summary>
     <ul>
        <li>
-        <strong>Can you hear the shape of a drum?s:</strong> 
+        <strong>Can you hear the shape of a drum?:</strong> 
       </li>
       <li>
-        <strong>Isospectral and Isoentropic Graphs:</strong> 
+        <strong>Isospectral Graphs:</strong> 
       <li>
         <strong>Fiedler Value and Connectivity:</strong> The second-smallest Laplacian eigenvalue (Fiedler value) measures connectivity: higher values mean better connected graphs; zero means disconnected components.
       </li>
       <li>
         <strong>Graph Rewiring:</strong> 
       <li>
-        <strong>Computing Eigenvalues of Glued Graphs:</strong> For graphs \(\Gamma_1\) and \(\Gamma_2\) joined along a shared subgraph \(I\), the glued graph’s spectrum satisfies
+        <strong>Computing the Characteristic Polynomial of Glued Graphs:</strong>  
+        When two graphs \(\Gamma_1\) and \(\Gamma_2\) are joined along a shared subgraph \(I\), we can find the characteristic polynomial \(E(\Gamma)\) of the combined graph \(\Gamma\) using the formula:
         \[
-        E(\Gamma) = \frac{E(\Gamma_1) \cdot E(\Gamma_2)}{E(I)}
+            E(\Gamma) = \frac{E(\Gamma_1) \cdot E(\Gamma_2)}{E(I)}
         \]
-        enabling efficient calculation of eigenvalues and entropy for complex graphs from simpler parts.
-      </li>
+        The roots of the characteristic polynomial are the eigenvalues of the graph’s Laplacian. This formula lets us efficiently compute the new characteristic polynomial, and thus the eigenvalues, of the larger graph by combining those of the smaller parts, avoiding direct calculation from scratch. 
+    </li>
     </ul>
   </details>
 </div>
