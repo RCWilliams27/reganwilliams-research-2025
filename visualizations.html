@@ -90,6 +90,21 @@
 </nav>
 
 <main>
+
+<section style="background: #e9ecef; border-radius: 8px; padding: 1.5em; margin-bottom: 2em; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <h2>Introduction</h2>
+  <p>
+    This page explores the behavior of von Neumann entropy and the Euler characteristic for different families of graphs as the number of vertices (<em>n</em>) increases.  
+    Von Neumann entropy is calculated using either the Laplacian or adjacency matrix of a graph, providing insights into the graph's structural complexity.  
+    The Euler characteristic, a topological invariant, helps characterize the graph's shape as it grows.  
+    Studying how entropy changes with graph size helps visualize our research by revealing patterns and structural differences between graph types.
+  </p>
+  <p>
+    Through interactive visualizations, you can compare how these measures evolve across graph types such as complete, bipartite, path, cycle, star, and lattice graphs.  
+    Additionally, this page offers a feature that allows you to draw your own custom graph and compute its entropy values, giving you hands-on experience with the concepts.
+  </p>
+    
+</section>
   <section class="plot-container">
     <h2>Laplacian Entropy</h2>
     <div id="laplacianPlot" style="height:500px;"></div>
@@ -129,7 +144,7 @@
     <details>
       <summary>Explanation</summary>
       <p>This graph displays the Euler characteristic (χ) for each graph type, a topological invariant defined as the number of vertices minus the number of edges (V − E). It shows how this value changes as the graph size increases. We observe that:</p>
-        <ul>
+        <ul> style="list-style-type: disc; padding-left: 20px; line-height: 1.8;">
           <li>Complete and complete bipartite graphs have rapidly decreasing (negative) Euler characteristics due to their quickly growing number of edges.</li>
           <li>Paths, stars, and trees maintain an Euler characteristic of 1 for all sizes because their number of edges is always one less than their number of vertices.</li>
            <li>Cycles have an Euler characteristic of 0 since the number of edges equals the number of vertices.</li>
