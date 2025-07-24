@@ -40,6 +40,39 @@
     }
     .plot-container {
       margin-bottom: 4em;
+      background: white;
+      border-radius: 8px;
+      padding: 1em;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .plot-container h2 {
+      margin-top: 0;
+    }
+    details {
+      margin-top: 1em;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    details summary {
+      font-weight: bold;
+      font-size: 1.1rem;
+      outline: none;
+      list-style: none;
+    }
+    details[open] summary::after {
+      content: "▲";
+      float: right;
+      font-size: 0.8rem;
+    }
+    details summary::after {
+      content: "▼";
+      float: right;
+      font-size: 0.8rem;
+    }
+    details p {
+      margin: 0.5em 0 0 0;
+      padding-left: 1em;
+      color: #333;
     }
   </style>
 </head>
@@ -60,21 +93,37 @@
   <section class="plot-container">
     <h2>Laplacian Entropy</h2>
     <div id="laplacianPlot" style="height:500px;"></div>
+    <details>
+      <summary>Explanation</summary>
+      <p>Laplacian entropy measures the uncertainty associated with the graph's Laplacian matrix eigenvalues.</p>
+    </details>
   </section>
 
   <section class="plot-container">
     <h2>Adjacency Entropy</h2>
     <div id="adjacencyPlot" style="height:500px;"></div>
+    <details>
+      <summary>Explanation</summary>
+      <p>Adjacency entropy measures the uncertainty associated with the graph's Adjacency matrix eigenvalues.</p>
+    </details>
   </section>
 
   <section class="plot-container">
     <h2>Entropy Ratio (Laplacian / Adjacency)</h2>
     <div id="ratioPlot" style="height:500px;"></div>
+    <details>
+      <summary>Explanation</summary>
+      <p>This ratio compares the entropy values computed from Laplacian and adjacency matrices.</p>
+    </details>
   </section>
 
   <section class="plot-container">
     <h2>Euler Characteristic</h2>
     <div id="eulerPlot" style="height:500px;"></div>
+    <details>
+      <summary>Explanation</summary>
+      <p>The Euler characteristic (χ) represents the topological invariant defined as vertices minus edges (V - E).</p>
+    </details>
   </section>
 </main>
 
@@ -89,7 +138,6 @@
       const plots = {};
       const graphTypes = new Set();
 
-      // Initialize plot structures
       for (const cat of categories) {
         plots[cat] = {};
       }
@@ -131,33 +179,48 @@
         }));
       }
 
-      Plotly.newPlot('laplacianPlot', makeTraces('laplacian'), {
-        title: 'Laplacian Entropy',
-        xaxis: { title: 'n (number of vertices)' },
-        yaxis: { title: 'Entropy' }
-      });
+      const commonAxisStyle = {
+        titlefont: {size: 16, family: 'Arial, sans-serif'},
+        tickfont: {size: 14, family: 'Arial, sans-serif'},
+        automargin: true,
+        zeroline: false,
+        gridcolor: '#ddd',
+        zerolinecolor: '#ddd',
+        zerolinewidth: 1,
+        ticks: 'outside',
+        ticklen: 6,
+        tickwidth: 1,
+        tickcolor: '#888',
+      };
 
-      Plotly.newPlot('adjacencyPlot', makeTraces('adjacency'), {
-        title: 'Adjacency Entropy',
-        xaxis: { title: 'n (number of vertices)' },
-        yaxis: { title: 'Entropy' }
-      });
+      function makeLayout(title, xTitle, yTitle) {
+        return {
+          title: { text: title, font: { size: 20 }},
+          margin: { t: 60, b: 60, l: 70, r: 40 },
+          xaxis: {
+            ...commonAxisStyle,
+            title: { text: xTitle, standoff: 15 },
+            tickangle: 0
+          },
+          yaxis: {
+            ...commonAxisStyle,
+            title: { text: yTitle, standoff: 15 }
+          },
+          plot_bgcolor: '#fff',
+          paper_bgcolor: '#fff',
+          hovermode: 'closest'
+        };
+      }
 
-      Plotly.newPlot('ratioPlot', makeTraces('ratio'), {
-        title: 'Entropy Ratio (Laplacian / Adjacency)',
-        xaxis: { title: 'n (number of vertices)' },
-        yaxis: { title: 'Ratio' }
-      });
+      Plotly.newPlot('laplacianPlot', makeTraces('laplacian'), makeLayout('Laplacian Entropy', 'n (number of vertices)', 'Entropy'));
 
-      Plotly.newPlot('eulerPlot', makeTraces('euler'), {
-        title: 'Euler Characteristic (χ = V - E)',
-        xaxis: { title: 'n (number of vertices)' },
-        yaxis: { title: 'χ' }
-      });
+      Plotly.newPlot('adjacencyPlot', makeTraces('adjacency'), makeLayout('Adjacency Entropy', 'n (number of vertices)', 'Entropy'));
+
+      Plotly.newPlot('ratioPlot', makeTraces('ratio'), makeLayout('Entropy Ratio (Laplacian / Adjacency)', 'n (number of vertices)', 'Ratio'));
+
+      Plotly.newPlot('eulerPlot', makeTraces('euler'), makeLayout('Euler Characteristic (χ = V - E)', 'n (number of vertices)', 'χ'));
     });
 </script>
 
 </body>
 </html>
-
-
