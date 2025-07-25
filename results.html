@@ -161,18 +161,23 @@
 
 <div class="box">
   <h3>Spectral Graph Theory</h3>
-  <p> Can you hear the shape of a drum? </p>
+  <p> Can you hear the shape of a drum? This famous question by mathematician Mark Kac asks whether the sound of a surface can reveal its shape. Spectral graph theory applies this idea to graphs: can the eigenvalues of a graph’s Laplacian matrix reveal what the graph looks like? By examining the eigenvalues of matrices like the adjacency or Laplacian matrix, we can uncover important structural and topological properties of the graph. </p>
   <details>
     <summary>See Key Results</summary>
     <ul>
       <li>
-        <strong>Isospectral Graphs:</strong> 
+        <strong>Isospectral Graphs:</strong> Different graphs can share the same eigenvalues (be isospectral), which means the answer to the big question, whether the spectrum alone determines a graph’s structure, is no. This is fascinating because it shows that graphs with different structures can have identical spectral properties. For example, such graphs have the same von Neumann entropy (they are isoentropic), since it depends solely on eigenvalues. Although isospectral graphs can be challenging to find, explicit examples do exist, confirming that the spectrum alone does not determine the graph, and sadly, we cannot “hear” its shape.
       <li>
-        <strong>Fiedler Value and Connectivity:</strong> The second-smallest Laplacian eigenvalue (Fiedler value) measures connectivity: higher values mean better connected graphs; zero means disconnected components.
-      </li>
+        <strong>Fiedler Value and Connectivity:</strong> The second-smallest Laplacian eigenvalue (Fiedler value) measures connectivity: higher values indicate better-connected graphs, while zero means the graph has disconnected components. This is crucial in spectral graph theory because it connects the graph’s algebraic properties (its eigenvalues) directly to its structure, allowing us to analyze connectivity, identify clusters, and assess network robustness using only the spectrum of the Laplacian.
       <li>
-        <strong>Graph Rewiring:</strong> 
-      <li>
+        <strong>Graph Rewiring:</strong> Graph rewiring is the process of changing which vertices are connected by edges without adding or removing anything—you simply change which vertices each edge connects, altering the graph’s structure while keeping the total number of vertices and edges the same. This lets us explore how changes in connectivity affect the graph’s spectral properties without changing fundamental topological features like the Betti numbers.
+        <p>In spectral graph theory, this is important because:</p>
+        <ul>
+          <li>It allows us to examine how rearranging edges influences the graph’s spectrum, revealing how eigenvalues respond to changes in wiring rather than just the overall shape.</li>
+          <li>It plays a key role in uncovering isospectral graphs.</li>
+          <li>It helps identify which spectral properties stay consistent despite rewiring, which is useful for analyzing network resilience.</li>
+      </ul>
+  </li>
         <strong>Computing the Characteristic Polynomial of Glued Graphs:</strong>  
         When two graphs \(\Gamma_1\) and \(\Gamma_2\) are joined along a shared subgraph \(I\), we can find the characteristic polynomial \(E(\Gamma)\) of the combined graph \(\Gamma\) using the formula:
         \[
@@ -248,9 +253,9 @@
         <details>
           <summary>Possible Next Steps</summary>
           <ul>
-            <li><strong>Analyze how entropy can be quantified via the number of possible walks on a graph:</strong>This approach links combinatorial paths to spectral theory, offering an intuitive perspective on network complexity and information diffusion.</li>
-            <li><strong>Develop a general gluing formula for graphs:</strong>Enabling us to break down large real-world networks into manageable components. This would make it easier to compute overall entropy by combining smaller pieces, offering a scalable approach to analyzing complex systems.</li>
-            <li><strong>Explore connections with small-world networks:</strong>Found in systems like neural networks, power grids, food webs, and social media platforms. Their combination of local clustering and short global paths makes them efficient and robust, forming an important class of real-world networks where studying entropy is especially meaningful.</li>
+            <li><strong>Analyze how entropy can be quantified via the number of possible walks on a graph:</strong> This approach links combinatorial paths to spectral theory, offering an intuitive perspective on network complexity and information diffusion.</li>
+            <li><strong>Develop a general gluing formula for graphs:</strong> Enabling us to break down large real-world networks into manageable components. This would make it easier to compute overall entropy by combining smaller pieces, offering a scalable approach to analyzing complex systems.</li>
+            <li><strong>Explore connections with small-world networks:</strong> Found in systems like neural networks, power grids, food webs, and social media platforms. Their combination of local clustering and short global paths makes them efficient and robust, forming an important class of real-world networks where studying entropy is especially meaningful.</li>
             <li><strong>Extend this work to include computations using a weighted Laplacian:</strong> In many real-world networks, edges carry weights that represent characteristics like strength or distance. Incorporating these weights into the Laplacian allows us to model networks more accurately, making entropy analysis more realistic and meaningful.</li>
             <li><strong>Expand the framework to consider higher dimensions:</strong> By moving beyond pairwise connections to structures involving groups of nodes, we can capture more complex relationships and topological features, providing deeper insights into network complexity.</li>
           </ul>
