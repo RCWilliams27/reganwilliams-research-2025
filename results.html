@@ -163,7 +163,28 @@
                     <li>
                     <em>Discrete Morse Theory:</em>
                     <p> Discrete Morse theory uses functions on vertices and edges to identify critical points and their indices in order to study their underlying topological structure.</p>
-              </li>
+             <img src="images/HeightFunction.png" alt="Height function example on C4" style="max-width: 300px; display: block; margin-bottom: 10px;">
+
+  <p><strong>Example: Height functions on \(C_4\) (a square)</strong></p>
+
+  <ul>
+    <li>
+      <strong>Perfect height function:</strong><br/>
+      Assign vertex heights increasing around the cycle (e.g., 0, 1, 2, 3).  
+      This creates one critical vertex (minimum) and no critical edges, so
+      \( C_0 = 1 \), \( C_1 = 0 \), matching Betti numbers \( b_0 = 1 \), \( b_1 = 0 \).
+    </li>
+
+    <li>
+      <strong>Imperfect height function:</strong><br/>
+      Assign alternating heights (e.g., 0, 2, 0, 2).  
+      This produces no critical vertices but one critical edge, so
+      \( C_0 = 0 \), \( C_1 = 1 \). The Betti numbers remain
+      \( b_0 = 1 \), \( b_1 = 0 \), but the Morse counts are not minimal.
+    </li>
+  </ul>
+</li>
+                  
           </ul>
       </li>
       </ul>
