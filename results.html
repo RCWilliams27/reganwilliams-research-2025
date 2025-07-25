@@ -107,23 +107,33 @@
                   \( \chi(\Gamma) = |V| - |E| \). It can also be expressed using Betti numbers as
                   \( \chi = b_0 - b_1 \), where:
           <ul>
-              <li>\( b_0 \) is the number of connected components, how many separate pieces the graph consists of.</li>
-              <li>\( b_1 \) is the number of independent cycles, the number of loops in a graph that cannot be broken down into others.</li>
+              <li>\( b_0 \) is the number of connected components: how many separate pieces the graph consists of.</li>
+              <li>\( b_1 \) is the number of independent cycles: the number of loops in a graph that cannot be broken down into others.</li>
           </ul>
-                This equation ties together vertex and edge counts with fundamental structural information, providing a baseline for understanding a graph’s overall shape and connectivity.
+                The relationship ties together vertex and edge counts with fundamental structural information, providing a baseline for understanding a graph’s overall shape and connectivity.
               </li>
                <li>
                 <strong>Gluing Formula:</strong> When graphs \( \Gamma_1 \) and \( \Gamma_2 \) are joined along a shared subgraph \( B \), we proved the identity:
                 \[\chi(\Gamma_1 \cup \Gamma_2) = \chi(\Gamma_1) + \chi(\Gamma_2) - \chi(B)\]
               </li>
               <li>
-                <strong>Even and Odd Laplacians:</strong> We constructed two Laplacians from the incidence matrix \( I \): the <em>even Laplacian</em> \( \Delta_+ = II^\top \), which acts on vertices, and the <em>odd Laplacian</em> \( \Delta_- = I^\top I \), which acts on edges. Their kernels satisfy
-                 \[
-                    \dim(\ker(\Delta_+)) = b_0, \qquad \dim(\ker(\Delta_-)) = b_1,
+              <strong>Even and Odd Laplacians:</strong>
+              <ul>
+                <li>
+                  The <em>even Laplacian</em> \( \Delta_+ = II^\top \) acts on vertices.
+              </li>
+              <li>
+              The <em>odd Laplacian</em> \( \Delta_- = I^\top I \) acts on edges.
+              </li>
+              </ul>
+                The dimensions of their kernels are:
+                \[
+                  \dim(\ker(\Delta_+)) = b_0, \qquad \dim(\ker(\Delta_-)) = b_1,
                   \]
-                  directly linking to the Betti numbers, where \( b_0 \) counts connected components and \( b_1 \) counts independent cycles.  
-                  Importantly, the even and odd Laplacians share the same positive eigenvalues. This means every nonzero eigenvalue for vertices corresponds to one for edges. The only differences occur in the zero eigenvalues, which reflect the Betti numbers \( b_0 \) and \( b_1 \). In physics, this pairing is seen as a connection between “bosonic” (vertex) and “fermionic” (edge) particles, a key concept in supersymmetry.
-               </li>
+                <p>This means that the Laplacians’ null spaces capture key topological features of the graph, the Betti numbers! </p>
+                <p>Importantly, the even and odd Laplacians share the same positive eigenvalues. This means every nonzero eigenvalue for vertices corresponds to one for edges. The only differences occur in the zero eigenvalues, which reflect the Betti numbers \( b_0 \) and \( b_1 \). </p>
+                <p>In physics, this pairing is seen as a connection between “bosonic” (vertex) and “fermionic” (edge) particles, a key concept in supersymmetry.</p>
+              </li>
                <li>
                 <strong>Morse Inequalities and Discrete Morse Theory:</strong> Used critical point counts from Morse functions on graphs to verify:
                 \[  C_0 - C_1 = b_0 - b_1 = \chi(\Gamma) \]
