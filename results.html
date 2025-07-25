@@ -103,15 +103,26 @@
           <summary>See Key Results</summary>
           <ul>
               <li>
-                <strong>Euler Characteristic:</strong> Defined \( \chi(\Gamma) = |V| - |E| \), a fundamental topological invariant for graphs. Interpreted this as \( \chi = b_0 - b_1 \), where \( b_0 \) is the number of connected components and \( b_1 \) the number of independent cycles.
+                <strong>Euler Characteristic:</strong> The Euler characteristic is a key topological invariant of a graph, defined as
+                  \( \chi(\Gamma) = |V| - |E| \). It can also be expressed using Betti numbers as
+                  \( \chi = b_0 - b_1 \), where:
+          <ul>
+              <li>\( b_0 \) is the number of connected components — how many separate pieces the graph consists of.</li>
+              <li>\( b_1 \) is the number of independent cycles — the minimal number of loops that cannot be broken down into others.</li>
+          </ul>
+                This relationship ties together simple counts of vertices and edges with deeper structural information, providing a baseline for understanding the graph’s overall shape and connectivity.
               </li>
                <li>
                 <strong>Gluing Formula:</strong> When graphs \( \Gamma_1 \) and \( \Gamma_2 \) are joined along a shared subgraph \( B \), we proved the identity:
                 \[\chi(\Gamma_1 \cup \Gamma_2) = \chi(\Gamma_1) + \chi(\Gamma_2) - \chi(B)\]
               </li>
-              <li>
-                 <strong>Even and Odd Laplacians:</strong> Constructed the even Laplacian \( \Delta_+ = II^\top \) and odd Laplacian \( \Delta_- = I^\top I \) using the incidence matrix \( I \). Showed that:
-                  \[\dim(\ker(\Delta_+)) = b_0, \quad \dim(\ker(\Delta_-)) = b_1\] revealing how the spectrum of the Laplacian encodes topology.
+               <li>
+                <strong>Even and Odd Laplacians:</strong> We constructed two Laplacians from the incidence matrix \( I \): the <em>even Laplacian</em> \( \Delta_+ = II^\top \), which acts on vertices, and the <em>odd Laplacian</em> \( \Delta_- = I^\top I \), which acts on edges. Their kernels satisfy
+                \[
+                  \dim(\ker(\Delta_+)) = b_0, \qquad \dim(\ker(\Delta_-)) = b_1,
+                 \]
+                  linking directly to the Betti numbers, where \( b_0 \) counts connected components and \( b_1 \) counts independent cycles.
+                  Importantly, the even and odd Laplacians share the same positive eigenvalues. This means every nonzero eigenvalue for vertices corresponds to one for edges. The only differences occur in the zero eigenvalues, which reflect the Betti numbers \( b_0 \) and \( b_1 \). In physics, this pairing is seen as a connection between “bosonic” (vertex) and “fermionic” (edge) particles, a key concept in supersymmetry.
               </li>
                <li>
                 <strong>Morse Inequalities and Discrete Morse Theory:</strong> Used critical point counts from Morse functions on graphs to verify:
