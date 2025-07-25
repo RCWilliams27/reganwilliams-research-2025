@@ -157,34 +157,57 @@
                       where:
                     </p>
                     <ul>
-                      <li>\( C_0 \) is the number of critical points of index 0.</li>
+                      <li>\( C_0 \) is the number of critical points of index 0</li>
                       <li>\( C_1 \) is the number of critical points of index 1.</li>
+                      <li>Index = number of downward directions at a critical point.<li>
                   </ul>
                     <li>
                     <em>Discrete Morse Theory:</em>
                     <p> Discrete Morse theory uses functions on vertices and edges to identify critical points and their indices in order to study their underlying topological structure.</p>
-             <img src="images/HeightFunction.png" alt="Height function example on C4" style="max-width: 300px; display: block; margin-bottom: 10px;">
-
-  <p><strong>Example: Height functions on \(C_4\) (a square)</strong></p>
-
-  <ul>
-    <li>
-      <strong>Perfect height function:</strong><br/>
-      Assign vertex heights increasing around the cycle (e.g., 0, 1, 2, 3).  
-      This creates one critical vertex (minimum) and no critical edges, so
-      \( C_0 = 1 \), \( C_1 = 0 \), matching Betti numbers \( b_0 = 1 \), \( b_1 = 0 \).
-    </li>
-
-    <li>
-      <strong>Imperfect height function:</strong><br/>
-      Assign alternating heights (e.g., 0, 2, 0, 2).  
-      This produces no critical vertices but one critical edge, so
-      \( C_0 = 0 \), \( C_1 = 1 \). The Betti numbers remain
-      \( b_0 = 1 \), \( b_1 = 0 \), but the Morse counts are not minimal.
-    </li>
-  </ul>
-</li>
-                  
+                    <p><strong>Example: Height functions on \(C_4\)</strong></p>
+                    <img src="images/HeightFunction.png" alt="Height function example on C4" style="max-width: 300px; display: block; margin-bottom: 10px;">
+                <ul>
+                  <li>
+                  <strong>Perfect height function:</strong><br/>
+                  <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="30" y1="30" x2="90" y2="30" stroke="black" stroke-width="2"/>
+                  <line x1="90" y1="30" x2="90" y2="90" stroke="black" stroke-width="2"/>
+                  <line x1="90" y1="90" x2="30" y2="90" stroke="black" stroke-width="2"/>
+                  <line x1="30" y1="90" x2="30" y2="30" stroke="black" stroke-width="2"/>
+                  <circle cx="30" cy="30" r="8" fill="#e0e0e0" stroke="black"/>
+                  <text x="30" y="35" text-anchor="middle" font-size="12">0</text>
+                  <circle cx="90" cy="30" r="8" fill="#e0e0e0" stroke="black"/>
+                  <text x="90" y="35" text-anchor="middle" font-size="12">1</text>
+                  <circle cx="90" cy="90" r="8" fill="#e0e0e0" stroke="black"/>
+                  <text x="90" y="95" text-anchor="middle" font-size="12">0</text>
+                  <circle cx="30" cy="90" r="8" fill="#e0e0e0" stroke="black"/>
+                  <text x="30" y="95" text-anchor="middle" font-size="12">1</text>
+                  </svg>                  
+                    We observe that there is only one critical vertex (the minimum) and no critical edges, thus:
+                  \( C_0 = 1 \), \( C_1 = 0 \),  with matching Betti numbers \( b_0 = 1 \), \( b_1 = 0 \). So the conditions to be "perfect" are satisfied.
+                </li>
+                <li>
+                  <strong>Imperfect height function:</strong><br/>
+                  <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="30" y1="30" x2="90" y2="30" stroke="black" stroke-width="2"/>
+                  <line x1="90" y1="30" x2="90" y2="90" stroke="black" stroke-width="2"/>
+                  <line x1="90" y1="90" x2="30" y2="90" stroke="black" stroke-width="2"/>
+                  <line x1="30" y1="90" x2="30" y2="30" stroke="black" stroke-width="2"/>
+                  <circle cx="30" cy="30" r="8" fill="#e0e0e0" stroke="black"/>
+                  <text x="30" y="35" text-anchor="middle" font-size="12">0</text>
+                  <circle cx="90" cy="30" r="8" fill="#e0e0e0" stroke="black"/>
+                  <text x="90" y="35" text-anchor="middle" font-size="12">1</text>
+                  <circle cx="90" cy="90" r="8" fill="#e0e0e0" stroke="black"/>
+                  <text x="90" y="95" text-anchor="middle" font-size="12">0</text>
+                  <circle cx="30" cy="90" r="8" fill="#e0e0e0" stroke="black"/>
+                  <text x="30" y="95" text-anchor="middle" font-size="12">1</text>
+                  </svg>
+                  This creates no critical vertices but one critical edge, so
+                  \( C_0 = 0 \), \( C_1 = 1 \). But
+                  \( b_0 = 1 \), \( b_1 = 0 \), so this function is not perfect.
+              </li>
+              </ul>
+            </li>       
           </ul>
       </li>
       </ul>
