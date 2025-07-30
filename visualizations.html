@@ -269,21 +269,25 @@
   ]
 });
 
-let nodeCounter = 0;
+let connectMode = false;
 let firstNode = null;
 
 document.getElementById('connectBtn').onclick = () => {
+  connectMode = !connectMode;
   firstNode = null;
-  cy.once('tap', 'node', function(evt) {
-    firstNode = this;
-    cy.once('tap', 'node', function(evt2) {
-      if(firstNode.id() !== evt2.target.id()) {
-        cy.add({ data: { source: firstNode.id(), target: evt2.target.id() } });
-      }
-      firstNode = null;
-    });
-  });
 };
+
+cy.on('tap', 'node', function(evt){
+  if(!connectMode) return;
+  if(!firstNode) {
+    firstNode = this;
+  } else {
+    if(firstNode.id() !== this.id()) {
+      cy.add({ data: { source: firstNode.id(), target: this.id() } });
+    }
+    firstNode = null;
+  }
+});
 
 document.getElementById('computeBtn').onclick = () => {
   const nodes = cy.nodes();
