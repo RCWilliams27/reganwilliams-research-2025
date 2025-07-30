@@ -269,15 +269,21 @@
   ]
 });
 
+let nodeCounter = 0;
 let connectMode = false;
 let firstNode = null;
+
+document.getElementById('addNodeBtn').onclick = () => {
+  cy.add({ data: { id: 'n' + nodeCounter }, position: { x: 100 + 50*nodeCounter, y: 100 } });
+  nodeCounter++;
+};
 
 document.getElementById('connectBtn').onclick = () => {
   connectMode = !connectMode;
   firstNode = null;
 };
 
-cy.on('tap', 'node', function(evt){
+cy.on('tap', 'node', function(){
   if(!connectMode) return;
   if(!firstNode) {
     firstNode = this;
@@ -293,7 +299,7 @@ document.getElementById('computeBtn').onclick = () => {
   const nodes = cy.nodes();
   const n = nodes.length;
   if(n === 0) {
-    document.getElementById('entropyOutput').innerText = "Nothing to compute.";
+    document.getElementById('entropyOutput').innerText = "No nodes to compute.";
     return;
   }
 
