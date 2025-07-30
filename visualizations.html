@@ -152,15 +152,16 @@
   <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
 
-  <section>
-  <h2>Interactive Graph Entropy</h2>
-  <p>Draw a graph below to see what its entropy is!.</p>
+  <div class="box">
+  <h3>Interactive Graph Entropy</h3>
+  <p>Draw a graph below to see what its entropy is!</p>
   <div id="cy" style="width: 700px; height: 450px; border: 1px solid #ccc; margin-bottom: 10px;"></div>
-  <button id="addNodeBtn">Add Node</button>
-  <button id="connectBtn">Toggle Connect Mode</button>
+  <button id="addNodeBtn">Add Vertex</button>
+  <button id="connectBtn">Add Edge</button>
   <button id="computeBtn">Compute Entropy</button>
+  <button id="clearBtn">Clear Graph</button>
   <p id="entropyOutput" style="font-weight:bold;"></p>
-  </section>
+  </div>
 
 </main>
 
