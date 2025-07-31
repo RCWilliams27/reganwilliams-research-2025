@@ -225,7 +225,7 @@
       </ul>
     </details>   
   <details>
-  <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">Example: Odd Laplacian of the Cycle Graph C₄ (via Incidence Matrix)</summary>
+  <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">Example: Odd Laplacian of the Cycle Graph C₄ </summary>
   <div style="margin-top: 1em; line-height: 1.6em;">
     <p><strong>Step 1:</strong> Label vertices \(v_1\) through \(v_4\), connected in a cycle.</p>
     <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -243,7 +243,7 @@
       <text x="50" y="170" class="label">\(v_4\)</text>
     </svg>
 
-    <p><strong>Step 2:</strong> Define the oriented incidence matrix \(B\), with edges:</p>
+    <p><strong>Step 2:</strong> Define the incidence matrix \(I\), with edges:</p>
     <ul>
       <li>\(e_1 = v_1 \to v_2\)</li>
       <li>\(e_2 = v_2 \to v_3\)</li>
@@ -253,7 +253,7 @@
 
     <p>
       \[
-      B = \begin{bmatrix}
+      I = \begin{bmatrix}
       -1 &  0 &  0 &  1 \\
        1 & -1 &  0 &  0 \\
        0 &  1 & -1 &  0 \\
@@ -262,11 +262,11 @@
       \]
     </p>
 
-    <p><strong>Step 3:</strong> Compute the odd Laplacian: \( \mathcal{L}_{\text{odd}} = B^T B \)</p>
+    <p><strong>Step 3:</strong> Compute the odd Laplacian: \( \Delta_{\text{odd}} = I^T I \)</p>
 
     <p>
       \[
-      \mathcal{L}_{\text{odd}} =
+      \Delta_{\text{odd}} =
       \begin{bmatrix}
         2 & -1 &  0 & -1 \\
        -1 & 2 & -1 &  0 \\
