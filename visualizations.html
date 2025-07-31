@@ -178,116 +178,115 @@
 </main>
 
 <script>
-  fetch('VisualizationData/combined_entropy_data.csv')
-    .then(response => response.text())
-    .then(data => {
-      const rows = data.trim().split('\n').map(row => row.split(','));
-      const header = rows.shift(); // ['n', 'graphType', 'laplacian', 'adjacency', 'ratio', 'euler']
+fetch('VisualizationData/combined_entropy_data.csv')
+  .then(response => response.text())
+  .then(data => {
+    const rows = data.trim().split('\n').map(row => row.split(','));
+    const header = rows.shift(); // ['n', 'graphType', 'laplacian', 'adjacency', 'ratio', 'euler']
 
-      const categories = ['laplacian', 'adjacency', 'ratio', 'euler'];
-      const plots = {};
-      const graphTypes = new Set();
+    const categories = ['laplacian', 'adjacency', 'ratio', 'euler'];
+    const plots = {};
+    const graphTypes = new Set();
 
-      for (const cat of categories) {
-        plots[cat] = {};
-      }
+    for (const cat of categories) {
+      plots[cat] = {};
+    }
 
-      for (const row of rows) {
-        const [nStr, type, lapStr, adjStr, ratioStr, eulerStr] = row;
-        const n = parseInt(nStr);
-        const lap = parseFloat(lapStr);
-        const adj = parseFloat(adjStr);
-        const ratio = parseFloat(ratioStr);
-        const euler = parseFloat(eulerStr);
+    for (const row of rows) {
+      const [nStr, type, lapStr, adjStr, ratioStr, eulerStr] = row;
+      const n = parseInt(nStr);
+      const lap = parseFloat(lapStr);
+      const adj = parseFloat(adjStr);
+      const ratio = parseFloat(ratioStr);
+      const euler = parseFloat(eulerStr);
 
-        graphTypes.add(type);
+      graphTypes.add(type);
 
-        if (!plots.laplacian[type]) {
-          for (const cat of categories) {
-            plots[cat][type] = { x: [], y: [] };
-          }
+      if (!plots.laplacian[type]) {
+        for (const cat of categories) {
+          plots[cat][type] = { x: [], y: [] };
         }
-
-        plots.laplacian[type].x.push(n);
-        plots.laplacian[type].y.push(lap);
-        plots.adjacency[type].x.push(n);
-        plots.adjacency[type].y.push(adj);
-        plots.ratio[type].x.push(n);
-        plots.ratio[type].y.push(ratio);
-        plots.euler[type].x.push(n);
-        plots.euler[type].y.push(euler);
       }
 
-      function makeTraces(category) {
-        return Array.from(graphTypes).map(type => ({
-          x: plots[category][type].x,
-          y: plots[category][type].y,
-          mode: 'lines+markers',
-          type: 'scatter',
-          name: type,
-          hovertemplate: `n=%{x}<br>${category}=%{y:.4f}<extra>${type}</extra>`
-        }));
-      }
+      plots.laplacian[type].x.push(n);
+      plots.laplacian[type].y.push(lap);
+      plots.adjacency[type].x.push(n);
+      plots.adjacency[type].y.push(adj);
+      plots.ratio[type].x.push(n);
+      plots.ratio[type].y.push(ratio);
+      plots.euler[type].x.push(n);
+      plots.euler[type].y.push(euler);
+    }
 
-      const commonAxisStyle = {
-        titlefont: {size: 16, family: 'Arial, sans-serif'},
-        tickfont: {size: 14, family: 'Arial, sans-serif'},
-        automargin: true,
-        zeroline: false,
-        gridcolor: '#ddd',
-        zerolinecolor: '#ddd',
-        zerolinewidth: 1,
-        ticks: 'outside',
-        ticklen: 6,
-        tickwidth: 1,
-        tickcolor: '#888',
+    function makeTraces(category) {
+      return Array.from(graphTypes).map(type => ({
+        x: plots[category][type].x,
+        y: plots[category][type].y,
+        mode: 'lines+markers',
+        type: 'scatter',
+        name: type,
+        hovertemplate: `n=%{x}<br>${category}=%{y:.4f}<extra>${type}</extra>`
+      }));
+    }
+
+    const commonAxisStyle = {
+      titlefont: {size: 16, family: 'Arial, sans-serif'},
+      tickfont: {size: 14, family: 'Arial, sans-serif'},
+      automargin: true,
+      zeroline: false,
+      gridcolor: '#ddd',
+      zerolinecolor: '#ddd',
+      zerolinewidth: 1,
+      ticks: 'outside',
+      ticklen: 6,
+      tickwidth: 1,
+      tickcolor: '#888',
+    };
+
+    function makeLayout(title, xTitle, yTitle) {
+      return {
+        title: { text: title, font: { size: 20 }},
+        margin: { t: 60, b: 60, l: 70, r: 40 },
+        xaxis: {
+          ...commonAxisStyle,
+          title: { text: xTitle, standoff: 15 }
+        },
+        yaxis: {
+          ...commonAxisStyle,
+          title: {
+            text: yTitle,
+            font: { size: 16, family: 'Arial, sans-serif' }
+          }
+        },
+        plot_bgcolor: '#fff',
+        paper_bgcolor: '#fff',
+        hovermode: 'closest'
       };
+    }
 
-  function makeLayout(title, xTitle, yTitle) {
-  return {
-    title: { text: title, font: { size: 20 }},
-    margin: { t: 60, b: 60, l: 70, r: 40 },
-    xaxis: {
-      ...commonAxisStyle,
-      title: { text: xTitle, standoff: 15 }
-    },
-    yaxis: {
-      ...commonAxisStyle,
-      title: {
-        text: yTitle,
-        font: { size: 16, family: 'Arial, sans-serif' }
-      }
-    },
-    plot_bgcolor: '#fff',
-    paper_bgcolor: '#fff',
-    hovermode: 'closest'
-  };
-}
+    // Existing plots
+    Plotly.newPlot('laplacianPlot', makeTraces('laplacian'), makeLayout('Laplacian Entropy', 'n (number of vertices)', 'Entropy'));
+    Plotly.newPlot('adjacencyPlot', makeTraces('adjacency'), makeLayout('Adjacency Entropy', 'n (number of vertices)', 'Entropy'));
+    Plotly.newPlot('ratioPlot', makeTraces('ratio'), makeLayout('Entropy Ratio (Laplacian / Adjacency)', 'n (number of vertices)', 'Ratio'));
+    Plotly.newPlot('eulerPlot', makeTraces('euler'), makeLayout('Euler Characteristic (χ = V - E)', 'n (number of vertices)', 'χ'));
 
-      Plotly.newPlot('laplacianPlot', makeTraces('laplacian'), makeLayout('Laplacian Entropy', 'n (number of vertices)', 'Entropy'));
+    // Torus vs Lattice plot (inside same block!)
+    const torusData = rows.filter(row => row[1] === 'Torus-Lattice');
+    const torusX = torusData.map(row => parseInt(row[0])); // n
+    const torusY = torusData.map(row => parseFloat(row[4])); // ratio column
 
-      Plotly.newPlot('adjacencyPlot', makeTraces('adjacency'), makeLayout('Adjacency Entropy', 'n (number of vertices)', 'Entropy'));
+    Plotly.newPlot('torusLatticePlot', [{
+      x: torusX,
+      y: torusY,
+      mode: 'lines+markers',
+      type: 'scatter',
+      name: 'Torus/Lattice Ratio',
+      line: { color: 'purple' },
+      hovertemplate: 'n=%{x}<br>ratio=%{y:.4f}<extra></extra>'
+    }], makeLayout('Torus vs Lattice Laplacian Entropy Ratio',
+                   'n (number of vertices)', 'Laplacian Entropy Ratio'));
+});
 
-      Plotly.newPlot('ratioPlot', makeTraces('ratio'), makeLayout('Entropy Ratio (Laplacian / Adjacency)', 'n (number of vertices)', 'Ratio'));
-
-      Plotly.newPlot('eulerPlot', makeTraces('euler'), makeLayout('Euler Characteristic (χ = V - E)', 'n (number of vertices)', 'χ'));
-    });
-
-  const torusData = rows.filter(row => row[1] === 'Torus-Lattice');
-
-const torusX = torusData.map(row => parseInt(row[0])); // n (vertices)
-const torusY = torusData.map(row => parseFloat(row[6])); // laplacian ratio column
-
-Plotly.newPlot('torusLatticePlot', [{
-  x: torusX,
-  y: torusY,
-  mode: 'lines+markers',
-  type: 'scatter',
-  name: 'Torus/Lattice Ratio',
-  line: { color: 'purple' },
-  hovertemplate: 'n=%{x}<br>ratio=%{y:.4f}<extra></extra>'
-}], makeLayout('Torus vs Lattice Laplacian Entropy Ratio',
-               'n (number of vertices)', 'Laplacian Entropy Ratio'));
 
    const cy = cytoscape({
     container: document.getElementById('cy'),
