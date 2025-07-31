@@ -149,6 +149,17 @@
         </ul>    
     </details>
   </section>
+
+  <section class="plot-container">
+  <h2>Torus vs Lattice Laplacian Entropy Ratio</h2>
+  <div id="torusLatticePlot" style="height:500px;"></div>
+  <details>
+    <summary>Explanation</summary>
+    <p>
+      This plot shows the ratio of Laplacian entropy between torus graphs and lattice graphs.
+    </p>
+  </details>
+</section>
   
   <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
@@ -167,7 +178,7 @@
 </main>
 
 <script>
-  fetch('VisualizationData/entropy_data.csv')
+  fetch('VisualizationData/combined_entropy_data.csv')
     .then(response => response.text())
     .then(data => {
       const rows = data.trim().split('\n').map(row => row.split(','));
@@ -261,6 +272,22 @@
 
       Plotly.newPlot('eulerPlot', makeTraces('euler'), makeLayout('Euler Characteristic (χ = V - E)', 'n (number of vertices)', 'χ'));
     });
+
+  const torusData = rows.filter(row => row[1] === 'Torus-Lattice');
+
+const torusX = torusData.map(row => parseInt(row[0])); // n (vertices)
+const torusY = torusData.map(row => parseFloat(row[6])); // laplacian ratio column
+
+Plotly.newPlot('torusLatticePlot', [{
+  x: torusX,
+  y: torusY,
+  mode: 'lines+markers',
+  type: 'scatter',
+  name: 'Torus/Lattice Ratio',
+  line: { color: 'purple' },
+  hovertemplate: 'n=%{x}<br>ratio=%{y:.4f}<extra></extra>'
+}], makeLayout('Torus vs Lattice Laplacian Entropy Ratio',
+               'n (number of vertices)', 'Laplacian Entropy Ratio'));
 
    const cy = cytoscape({
     container: document.getElementById('cy'),
