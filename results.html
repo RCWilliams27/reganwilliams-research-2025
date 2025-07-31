@@ -228,29 +228,21 @@
   <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">Example: Odd Laplacian of the Cycle Graph C₄ </summary>
   <div style="margin-top: 1em; line-height: 1.6em;">
     <p><strong>Step 1:</strong> Label vertices \(v_1\) through \(v_4\), connected in a cycle.</p>
-    <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <line x1="50" y1="50" x2="150" y2="50" class="edge"/>
-      <line x1="150" y1="50" x2="150" y2="150" class="edge"/>
-      <line x1="150" y1="150" x2="50" y2="150" class="edge"/>
-      <line x1="50" y1="150" x2="50" y2="50" class="edge"/>
-      <circle cx="50" cy="50" r="6" class="node"/>
-      <circle cx="150" cy="50" r="6" class="node"/>
-      <circle cx="150" cy="150" r="6" class="node"/>
-      <circle cx="50" cy="150" r="6" class="node"/>
-      <text x="50" y="40" class="label">\(v_1\)</text>
-      <text x="150" y="40" class="label">\(v_2\)</text>
-      <text x="150" y="170" class="label">\(v_3\)</text>
-      <text x="50" y="170" class="label">\(v_4\)</text>
-    </svg>
-
-    <p><strong>Step 2:</strong> Define the incidence matrix \(I\), with edges:</p>
-    <ul>
-      <li>\(e_1 = v_1 \to v_2\)</li>
-      <li>\(e_2 = v_2 \to v_3\)</li>
-      <li>\(e_3 = v_3 \to v_4\)</li>
-      <li>\(e_4 = v_4 \to v_1\)</li>
-    </ul>
-
+  <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <line x1="50" y1="50" x2="150" y2="50" class="edge"/>
+        <line x1="150" y1="50" x2="150" y2="150" class="edge"/>
+        <line x1="150" y1="150" x2="50" y2="150" class="edge"/>
+        <line x1="50" y1="150" x2="50" y2="50" class="edge"/>
+        <circle cx="50" cy="50" r="6" class="node"/>
+        <circle cx="150" cy="50" r="6" class="node"/>
+        <circle cx="150" cy="150" r="6" class="node"/>
+        <circle cx="50" cy="150" r="6" class="node"/>
+        <text x="50" y="40" class="label">\(v_1\)</text>
+        <text x="150" y="40" class="label">\(v_2\)</text>
+        <text x="150" y="170" class="label">\(v_3\)</text>
+        <text x="50" y="170" class="label">\(v_4\)</text>
+      </svg>
+    <p><strong>Step 2:</strong> Define the incidence matrix \(I\):</p
     <p>
       \[
       I = \begin{bmatrix}
@@ -262,11 +254,10 @@
       \]
     </p>
 
-    <p><strong>Step 3:</strong> Compute the odd Laplacian: \( \Delta_{\text{odd}} = I^T I \)</p>
-
+    <p><strong>Step 3:</strong> Compute the odd Laplacian: \( \Delta_- = I^\top I \) = I^T I \)</p>
     <p>
       \[
-      \Delta_{\text{odd}} =
+      (\Delta_-) =
       \begin{bmatrix}
         2 & -1 &  0 & -1 \\
        -1 & 2 & -1 &  0 \\
