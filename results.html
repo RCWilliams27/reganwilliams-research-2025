@@ -223,10 +223,10 @@
           </ul>
       </li>
       </ul>
-    </details><details>
-  <summary><strong>Example: Odd Laplacian of C₄ </strong></summary>
-  <div class="box">
-    <h2>Odd Laplacian</h2>
+    </details>   
+  <details>
+  <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">Example: Odd Laplacian of the Cycle Graph C₄ (via Incidence Matrix)</summary>
+  <div style="margin-top: 1em; line-height: 1.6em;">
     <p><strong>Step 1:</strong> Label vertices \(v_1\) through \(v_4\), connected in a cycle.</p>
     <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
       <line x1="50" y1="50" x2="150" y2="50" class="edge"/>
@@ -237,13 +237,13 @@
       <circle cx="150" cy="50" r="6" class="node"/>
       <circle cx="150" cy="150" r="6" class="node"/>
       <circle cx="50" cy="150" r="6" class="node"/>
-      <text x="45" y="35" class="label">\(v_1\)</text>
-      <text x="155" y="35" class="label">\(v_2\)</text>
-      <text x="155" y="170" class="label">\(v_3\)</text>
-      <text x="45" y="170" class="label">\(v_4\)</text>
+      <text x="50" y="40" class="label">\(v_1\)</text>
+      <text x="150" y="40" class="label">\(v_2\)</text>
+      <text x="150" y="170" class="label">\(v_3\)</text>
+      <text x="50" y="170" class="label">\(v_4\)</text>
     </svg>
 
-    <p><strong>Step 2:</strong> Define the incidence matrix \(B\), with edges:</p>
+    <p><strong>Step 2:</strong> Define the oriented incidence matrix \(B\), with edges:</p>
     <ul>
       <li>\(e_1 = v_1 \to v_2\)</li>
       <li>\(e_2 = v_2 \to v_3\)</li>
@@ -262,7 +262,7 @@
       \]
     </p>
 
-    <p><strong>Step 3:</strong> Compute the <em>odd Laplacian</em>: \( \mathcal{L}_{\text{odd}} = B^T B \)</p>
+    <p><strong>Step 3:</strong> Compute the odd Laplacian: \( \mathcal{L}_{\text{odd}} = B^T B \)</p>
 
     <p>
       \[
@@ -278,16 +278,13 @@
 
     <p><strong>Step 4:</strong> Eigenvalues: \( \{0, 2, 2, 4\} \)</p>
 
-    <p><strong>Step 5:</strong> Compute entropy:<br>
+    <p><strong>Step 5:</strong> Compute \(S = \sum \lambda \log \lambda\), excluding \(0\):<br>
       \[
-      S = \sum \lambda \log \lambda, \quad \text{excluding } \lambda = 0
-      \]
-      \[
-      S = \left(2 \log 2 + 2 \log 2 + 4 \log 4\right) \approx 8.3178
+      S = 2 \log 2 + 2 \log 2 + 4 \log 4 \approx 8.3178
       \]
     </p>
 
-    <p>This confirms that the odd Laplacian has the same non-zero eigenvalues as the even and thus leads to the same entropy value.</p>
+    <p>This confirms that the odd Laplacian's spectrum matches the even Laplacian and therefore produces the same entropy.</p>
   </div>
 </details>
 
