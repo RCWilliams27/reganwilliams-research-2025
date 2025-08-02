@@ -260,6 +260,7 @@
   </div>
         <details>
           <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em;">Types of Graphs</summary>
+          <p>There are two main kinds of graphs: <strong>directed</strong> and <strong>undirected</strong>. In a directed graph, the edges have arrows showing the direction from one point to another, like in the image above. In an undirected graph, the edges don’t have arrows—they go both ways. In this research, we mostly look at undirected graphs, like the ones shown below. </p>
           <ul style="margin-top: 1em; line-height: 1.6em; padding-left: 1.2em;">
             <li><strong>Path Graph:</strong> Vertices arranged in a line where each is connected to its immediate neighbors.</li>
             <svg width="200" height="80" viewBox="0 0 200 80">
@@ -415,7 +416,7 @@
     </ul>
    <p>We form the Laplacian matrix by subtracting the adjacency matrix from the degree matrix:</p>
     <p class="formula">\(Δ = D - A\)</p>
-    <p>Finally, the von Neumann entropy \(S\) is computed using the eigenvalues of the Laplacian as:</p>
+    <p>Finally, the von Neumann entropy \(S\) is computed using the (non-zero) eigenvalues of the Laplacian as:</p>
     <p class="formula">\(S = \sum \lambda \log \lambda\)</p>
     </div>
   </details>
