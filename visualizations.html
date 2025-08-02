@@ -278,7 +278,6 @@
         };
       }
 
-      // Draw the first four plots
       Plotly.newPlot('laplacianPlot', makeTraces('laplacianEntropy'), makeLayout('Laplacian Entropy', 'n (number of vertices)', 'Entropy'));
       Plotly.newPlot('adjacencyPlot', makeTraces('adjacencyEntropy'), makeLayout('Adjacency Entropy', 'n (number of vertices)', 'Entropy'));
       Plotly.newPlot('ratioPlot', makeTraces('entropyRatio'), makeLayout('Entropy Ratio (Laplacian / Adjacency)', 'n (number of vertices)', 'Ratio'));
@@ -289,7 +288,7 @@
     .then(response => response.text())
     .then(data => {
       const rows = data.trim().split('\n').map(row => row.split(','));
-      rows.shift(); // remove header
+      rows.shift();
 
       const nIndex = 0;
       const ratioIndex = 1; 
@@ -412,7 +411,7 @@
     let entropy = eig.reduce((sum, λ) => λ > 1e-12 ? sum + λ * Math.log(λ) : sum, 0);
 
     document.getElementById('entropyOutput').innerText =
-      "Raw Entropy (Σ λ ln λ) = " + entropy.toFixed(4);
+      "Von Neumann Entropy (Σ λ ln λ) = " + entropy.toFixed(4);
   };
 
   document.getElementById('clearBtn').onclick = () => {
