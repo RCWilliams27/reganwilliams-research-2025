@@ -102,7 +102,7 @@
     Additionally, this page offers a feature that allows you to draw your own custom graph and compute its entropy values, giving you hands-on experience with the concepts.
   </p>
   <p><em>
-  To use the interactive graphs: hover over the graphs to view detailed data points. Use the zoom and pan tools to explore different sections. Click and drag to zoom in on a specific section.
+  To use the interactive graphs: hover over the graphs to view specific data points. Use the zoom and pan tools to explore different sections. Click and drag to zoom in on a specific section.
 </em></p>
 </section>
   <section class="plot-container">
@@ -175,6 +175,17 @@
   <button id="computeBtn">Compute Entropy</button>
   <button id="clearBtn">Clear Graph</button>
   <p id="entropyOutput" style="font-weight:bold;"></p>
+  <details>
+  <summary>How to Explore Entropy with the Interactive Graph</summary>
+  <p>Use this interactive tool to build graphs and see how their Von Neumann entropy changes. Here’s what to keep in mind as you experiment:</p>
+  <ul style="list-style-type: disc; padding-left: 20px; line-height: 1.8;">
+    <li><strong>Add Vertices and Edges:</strong> Click "Add Vertex" to place points, then connect them by clicking between vertices. Generally, adding more vertices and edges increases entropy.</li>
+    <li><strong>Disconnected Graphs:</strong> If the graph has separate disconnected parts, the total entropy equals the sum of the entropies of those parts.</li>
+    <li><strong>Empty Graph:</strong> A graph with vertices but no edges (an empty graph) has an entropy value of zero. </li>
+    <li><strong>Rewiring Edges:</strong> Changing which vertices are connected without adding/removing edges can alter the overall entropy. Try changing the connectivity and observe how the entropy responds.</li>
+    <li><strong>Compare Graph Families:</strong> Try drawing the different types of graphs we discussed earlier to explore how their shapes influence entropy.</li>
+  </ul>
+</details>
 </section>
 
 </main>
