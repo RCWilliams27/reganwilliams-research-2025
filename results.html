@@ -358,14 +358,18 @@
 
 <div class="box">
   <h3>Spectral Graph Theory</h3>
-  <p> Can you hear the shape of a drum? This famous question by mathematician Mark Kac asks whether the sound of a drum's surface can reveal its shape. Spectral graph theory applies this idea to graphs: can the eigenvalues of a graph’s Laplacian matrix tell us what the graph looks like? By examining the eigenvalues of matrices like the adjacency or Laplacian, we can uncover important structural and topological properties of the graph. </p>
+  <p>
+    Can you hear the shape of a drum? This famous question by mathematician Mark Kac asks whether the sound of a drum's surface can reveal its shape. Spectral graph theory applies this idea to graphs: can the eigenvalues of a graph’s Laplacian matrix tell us what the graph looks like? By examining the eigenvalues of matrices like the adjacency or Laplacian, we can uncover important structural and topological properties of the graph.
+  </p>
   <details>
     <summary>See Key Results</summary>
     <ul>
       <li>
         <strong>Isospectral Graphs:</strong> Different graphs can share the same eigenvalues (be isospectral), which means the answer to the big question, whether the spectrum alone determines a graph’s structure, is no. This is fascinating because it shows that graphs with different structures can have identical spectral properties. For example, such graphs have the same von Neumann entropy (they are isoentropic), since it depends solely on eigenvalues. Although isospectral graphs can be challenging to find, explicit examples do exist, confirming that the spectrum alone cannot tell us what a graph looks like.
+      </li>
       <li>
         <strong>Fiedler Value and Connectivity:</strong> The second-smallest Laplacian eigenvalue (Fiedler value) measures connectivity: higher values indicate better-connected graphs, while zero means the graph has disconnected components. This is crucial in spectral graph theory because it connects the graph’s algebraic properties (its eigenvalues) directly to its structure, allowing us to analyze connectivity, identify clusters, and assess network robustness using only the spectrum of the Laplacian.
+      </li>
       <li>
         <strong>Graph Rewiring:</strong> Graph rewiring is the process of changing which vertices are connected by edges without adding or removing anything; you simply change which vertices each edge connects, altering the graph’s structure while keeping the total number of vertices and edges the same. This lets us explore how changes in connectivity affect the graph’s spectral properties without changing fundamental topological features like the Betti numbers.
         <p>In spectral graph theory, this is important because:</p>
@@ -373,19 +377,21 @@
           <li>It allows us to examine how rearranging edges influences the graph’s spectrum, revealing how eigenvalues respond to changes in wiring rather than just the overall shape.</li>
           <li>It plays a key role in uncovering isospectral graphs.</li>
           <li>It helps identify which spectral properties stay consistent despite rewiring, which is useful for analyzing network resilience.</li>
-      </ul>
-  </li>
+        </ul>
+      </li>
+      <li>
         <strong>Computing the Characteristic Polynomial of Glued Graphs:</strong>  
         When two graphs \(\Gamma_1\) and \(\Gamma_2\) are joined along a shared subgraph \(I\), we can find the characteristic polynomial \(E(\Gamma)\) of the combined graph \(\Gamma\) using the formula:
+        <p>
         \[
             E(\Gamma) = \frac{E(\Gamma_1) \cdot E(\Gamma_2)}{E(I)}
         \]
-        The roots of the characteristic polynomial are the eigenvalues of the graph’s Laplacian. This formula lets us efficiently compute the new characteristic polynomial, and thus the eigenvalues, of the larger graph by combining those of the smaller parts, avoiding direct calculation from scratch. 
-    </li>
+        </p>
+        The roots of the characteristic polynomial are the eigenvalues of the graph’s Laplacian. This formula lets us efficiently compute the new characteristic polynomial, and thus the eigenvalues, of the larger graph by combining those of the smaller parts, avoiding direct calculation from scratch.
+      </li>
     </ul>
   </details>
 </div>
-
 
 <div class="box">
   <h3>Network Theory</h3>
